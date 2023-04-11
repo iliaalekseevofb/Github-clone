@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import { Navbar, Footer } from './components';
 import { Home, Overview, User, Repositories, Repository } from './pages';
 
-const App = () => {
+function App () {
   return (
     <>
       <Navbar />

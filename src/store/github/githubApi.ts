@@ -7,7 +7,7 @@ export const githubApi = createApi({
     baseUrl: "https://api.github.com/"
   }),
   endpoints: (build) => ({
-    // Search users by name
+    // Find users via name
     searchUsers: build.query<UserItem[], string>({
       query: (userName: string) => ({
         url: "search/users",
@@ -19,10 +19,19 @@ export const githubApi = createApi({
       transformResponse: (response: UserSearchResponse) => response.items
     }),
 
-    // Get random public repos
+    // Lists public repositories for the specified user
+    getReposByUser: build.query<any, string>({
+      query: (userName: string) => ({
+        url: `users/${userName}/repos`,
+        sort: "updated",
+        per_page: 10
+      })
+    }),
+
+    // Lists all public repositories in the order that they were created
     getPublicRepos: build.query<RepoItem[], void>({
       query: () => ({
-        url: "/repositories",
+        url: "repositories",
       }),
     })
   })
