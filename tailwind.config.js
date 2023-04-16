@@ -23,6 +23,9 @@ export default {
         'default': '200ms'
       }
     },
+    fontSize: {
+      'sm': '14px'
+    }
   },
   plugins: [],
 }
