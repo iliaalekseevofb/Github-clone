@@ -8,7 +8,7 @@ const Navbar = () => {
         <div>
           <NavLink to="/">
             <img
-              className="w-8 hover:opacity-70"
+              className="w-8 hover:opacity-70 duration-default"
               src={GithubMark}
               alt="GitHub mark"
             />

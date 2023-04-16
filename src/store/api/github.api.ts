@@ -20,21 +20,17 @@ export const githubApi = createApi({
     }),
 
     // Lists public repositories for the specified user
-    getReposByUser: build.query<any, string>({
+    getReposByUser: build.query<RepoItem[], string>({
       query: (userName: string) => ({
         url: `users/${userName}/repos`,
         sort: "updated",
         per_page: 10
       })
     }),
-
-    // Lists all public repositories in the order that they were created
-    getPublicRepos: build.query<RepoItem[], void>({
-      query: () => ({
-        url: "repositories",
-      }),
-    })
   })
 })
 
-export const { useSearchUsersQuery, useLazyGetPublicReposQuery } = githubApi;
+export const {
+  useSearchUsersQuery,
+  useLazyGetReposByUserQuery
+} = githubApi;

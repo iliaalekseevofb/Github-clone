@@ -1,13 +1,13 @@
 import { Routes, Route } from 'react-router-dom';
 import { Navbar, Footer } from './components';
-import { Home, Overview, User, Repositories, Repository } from './pages';
+import { User, Overview, Repositories, Repository } from './pages';
 
 function App () {
   return (
     <>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<User />} />
         <Route path="/:user" element={<User />}>
           <Route index element={<Overview />} />
           <Route path="/:user/overview" element={<Overview />}/>

@@ -9,6 +9,7 @@ export default {
       colors: {
         "gray-100": "#E6EDF3",
         "gray-200": "#F0F6FC",
+        "gray-300": "#30363D",
         "gray-400": "#7D8590",
         "gray-500": "#C9D1D9",
         "gray-700": "#161B22",
@@ -17,6 +18,9 @@ export default {
       },
       spacing: {
         "15": "60px"
+      },
+      transitionDuration: {
+        'default': '200ms'
       }
     },
   },
