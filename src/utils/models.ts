@@ -97,3 +97,10 @@ export interface RepoOwner {
   type: string
   site_admin: boolean
 }
+
+// Navigation link type
+export type NavigationLinkItem = {
+  path?: string,
+  text: string,
+  disabled: boolean
+}

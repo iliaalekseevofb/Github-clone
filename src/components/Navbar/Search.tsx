@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import UserCircleIcon from '@heroicons/react/20/solid/UserCircleIcon';
 import ArrowUturnLeftIcon from '@heroicons/react/20/solid/ArrowUturnLeftIcon';
-import { useSearchUsersQuery } from "../store/api/github.api";
-import {useDebounce} from "../hooks/useDebounce";
-import {UserItem} from "../utils/models";
+import { useSearchUsersQuery } from "../../store/api/github.api";
+import {useDebounce} from "../../hooks/useDebounce";
+import {UserItem} from "../../utils/models";
 
 const Search = () => {
   const [searchInput, setSearchInput] = useState<string>('');

@@ -1,6 +1,17 @@
 import { NavLink } from "react-router-dom";
 import { GithubMark } from "../assets";
-import Search from "./Search";
+import {NavigationLinkItem} from "../utils/models";
+import Search from "./Navbar/Search";
+import NavigationLink from "./Navbar/NavigationLink";
+
+const navigationLinks: NavigationLinkItem[] = [
+  {path: '/', text: 'Pull requests', disabled: true},
+  {path: '/', text: 'Issues', disabled: true},
+  {path: '/', text: 'Pull requests', disabled: true},
+  {path: '/', text: 'Issues', disabled: true},
+  {path: '/', text: 'Pull requests', disabled: true},
+  {path: '/', text: 'Issues', disabled: true}
+]
 
 const Navbar = () => {
   return (
@@ -15,6 +26,9 @@ const Navbar = () => {
             />
           </NavLink>
           <Search />
+          {navigationLinks?.map((navLink: NavigationLinkItem) => (
+            <NavigationLink path={navLink.path} text={navLink.text} disabled={navLink.disabled} />
+          ))}
         </div>
         <div>
           Something
