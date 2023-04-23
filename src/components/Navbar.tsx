@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { GithubMark } from "../assets";
-import { NavigationLinkItem } from "../utils/models";
+import { NavigationLinkItem } from "../utils/types";
 import Search from "./Navbar/Search";
 import NavigationLink from "./Navbar/NavigationLink";
 import DarkThemeToggle from "./Navbar/DarkThemeToggle";

@@ -4,7 +4,7 @@ import UserCircleIcon from '@heroicons/react/20/solid/UserCircleIcon';
 import ArrowUturnLeftIcon from '@heroicons/react/20/solid/ArrowUturnLeftIcon';
 import { useSearchUsersQuery } from "../../store/api/github.api";
 import {useDebounce} from "../../hooks/useDebounce";
-import {UserItem} from "../../utils/models";
+import {UserSearchItem} from "../../utils/interfaces";
 
 const Search = () => {
   const [searchInput, setSearchInput] = useState<string>('');
@@ -14,7 +14,7 @@ const Search = () => {
   const debounced = useDebounce(searchInput);
   const {
     isError: isUsersSearchError,
-    isLoading: isUserSearchLoading,
+    isLoading: isUsersSearchLoading,
     data: usersData
   } = useSearchUsersQuery(debounced, {
     skip: debounced.length < 3,
@@ -39,8 +39,9 @@ const Search = () => {
         onChange={e => setSearchInput(e.target.value)}
       />
       {isDropdownVisible && <ul className="absolute top-8 left-0 right-0 max-h-72">
-        {isUserSearchLoading && <p className="text-center text-gray-300">Loading...</p>}
-        {usersData?.map((user: UserItem) => (
+        {isUsersSearchLoading && <p className="text-center text-gray-300">Loading...</p>}
+        {isUsersSearchError && <p className="text-center text-gray-300">An error occurred while fetching data...</p>}
+        {usersData?.map((user: UserSearchItem) => (
           <li
             onClick={() => handleOnUserClick(user.login)}
             key={user.id}

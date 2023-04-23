@@ -4,7 +4,7 @@ import { User, Overview, Repositories, Repository } from './pages';
 
 function App () {
   return (
-    <>
+    <main className="bg-white dark:bg-gray-800">
       <Navbar />
       <Routes>
         <Route path="/" element={<User />} />
@@ -16,7 +16,7 @@ function App () {
         <Route path="/:user/:repository" element={<Repository />} />
       </Routes>
       <Footer />
-    </>
+    </main>
   )
 }
 

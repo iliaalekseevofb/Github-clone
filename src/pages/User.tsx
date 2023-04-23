@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Outlet, useParams } from 'react-router-dom';
 import { useLazyGetUserInfoQuery, useLazyGetReposByUserQuery } from "../store/api/github.api";
 
@@ -29,10 +29,27 @@ const User = () => {
     }
   }, [user])
 
+  if (isUserLoading || isUserReposLoading) {
+    return (
+      <div className="w-full h-full">
+        <span className="spinner"></span>
+      </div>
+    )
+  }
+
+  if (isUserError || isUserReposError) {
+    return (
+      <div>
+        An error occurred while fetching
+      </div>
+    )
+  }
+
   return (
     <div className="bg-white dark:bg-gray-800">
-      <div className="text-white">
-        {user}
+      <div>
+        <span>{userData?.name}</span>
+        <img src={userData?.avatar_url} alt="User avatar" />
       </div>
 
       <Outlet />
