@@ -1,10 +1,9 @@
 import { NavLink } from "react-router-dom";
 import { GithubMark } from "../assets";
-import {NavigationLinkItem} from "../utils/models";
+import { NavigationLinkItem } from "../utils/models";
 import Search from "./Navbar/Search";
 import NavigationLink from "./Navbar/NavigationLink";
-import darkThemeToggle from "./Navbar/darkThemeToggle";
-import ColorThemeToggleButton from "./Navbar/darkThemeToggle";
+import DarkThemeToggle from "./Navbar/DarkThemeToggle";
 
 const navigationLinks: NavigationLinkItem[] = [
   {path: '/', text: 'Pull requests', disabled: true},
@@ -28,11 +27,11 @@ const Navbar = () => {
             />
           </NavLink>
           <Search />
-          {navigationLinks?.map((navLink: NavigationLinkItem) => (
-            <NavigationLink path={navLink.path} text={navLink.text} disabled={navLink.disabled} />
+          {navigationLinks?.map((navLink: NavigationLinkItem, index: number) => (
+            <NavigationLink key={index} path={navLink.path} text={navLink.text} disabled={navLink.disabled} />
           ))}
         </div>
-        <ColorThemeToggleButton />
+        <DarkThemeToggle />
       </div>
     </nav>
   )

@@ -19,6 +19,13 @@ export const githubApi = createApi({
       transformResponse: (response: UserSearchResponse) => response.items
     }),
 
+    // Get user info bu login
+    getUserInfo: build.query<any, string>({
+      query: (userName: string) => ({
+        url: `users/${userName}`
+      })
+    }),
+
     // Lists public repositories for the specified user
     getReposByUser: build.query<RepoItem[], string>({
       query: (userName: string) => ({
@@ -32,5 +39,6 @@ export const githubApi = createApi({
 
 export const {
   useSearchUsersQuery,
+  useLazyGetUserInfoQuery,
   useLazyGetReposByUserQuery
 } = githubApi;

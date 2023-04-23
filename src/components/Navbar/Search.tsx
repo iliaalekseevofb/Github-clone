@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import {NavigateFunction, useNavigate} from "react-router-dom";
 import UserCircleIcon from '@heroicons/react/20/solid/UserCircleIcon';
 import ArrowUturnLeftIcon from '@heroicons/react/20/solid/ArrowUturnLeftIcon';
 import { useSearchUsersQuery } from "../../store/api/github.api";
@@ -8,6 +9,7 @@ import {UserItem} from "../../utils/models";
 const Search = () => {
   const [searchInput, setSearchInput] = useState<string>('');
   const [isDropdownVisible, setIsDropdownVisible] = useState<boolean>(false);
+  const navigate: NavigateFunction = useNavigate();
 
   const debounced = useDebounce(searchInput);
   const {
@@ -18,6 +20,11 @@ const Search = () => {
     skip: debounced.length < 3,
     refetchOnFocus: true
   });
+
+  const handleOnUserClick = (userLogin: string): void => {
+    navigate(`/${userLogin}`);
+    setIsDropdownVisible(false);
+  }
 
   useEffect(() => {
     setIsDropdownVisible(debounced.length > 3 && usersData?.length! > 0);
@@ -35,6 +42,7 @@ const Search = () => {
         {isUserSearchLoading && <p className="text-center text-gray-300">Loading...</p>}
         {usersData?.map((user: UserItem) => (
           <li
+            onClick={() => handleOnUserClick(user.login)}
             key={user.id}
             className="group w-full h-10 px-3 flex justify-between items-center text-gray-200 text-sm bg-gray-800 hover:bg-blue-700 border-x border-b border-gray-300 hover:border-blue-700 last:rounded-b-md cursor-pointer"
           >

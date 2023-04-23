@@ -3,11 +3,11 @@ import {useDarkTheme} from "../../hooks/useDarkTheme";
 import SunIcon from '@heroicons/react/20/solid/SunIcon';
 import MoonIcon from '@heroicons/react/20/solid/MoonIcon';
 
-const darkThemeToggle = () => {
+const DarkThemeToggle = () => {
   const { darkTheme, toggleDarkTheme } = useDarkTheme();
 
   return (
-    <button className="w-8 h-8 text-gray-200">
+    <button className="w-7 h-7 text-gray-200">
       {darkTheme
         ? <SunIcon onClick={() => toggleDarkTheme()} className="w-full h-full" />
         : <MoonIcon onClick={() => toggleDarkTheme()} className="w-full h-full" />
@@ -16,4 +16,4 @@ const darkThemeToggle = () => {
   )
 }
 
-export default darkThemeToggle;
+export default DarkThemeToggle;
