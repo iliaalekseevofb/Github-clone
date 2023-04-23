@@ -3,6 +3,8 @@ import { GithubMark } from "../assets";
 import {NavigationLinkItem} from "../utils/models";
 import Search from "./Navbar/Search";
 import NavigationLink from "./Navbar/NavigationLink";
+import darkThemeToggle from "./Navbar/darkThemeToggle";
+import ColorThemeToggleButton from "./Navbar/darkThemeToggle";
 
 const navigationLinks: NavigationLinkItem[] = [
   {path: '/', text: 'Pull requests', disabled: true},
@@ -30,9 +32,7 @@ const Navbar = () => {
             <NavigationLink path={navLink.path} text={navLink.text} disabled={navLink.disabled} />
           ))}
         </div>
-        <div>
-          Something
-        </div>
+        <ColorThemeToggleButton />
       </div>
     </nav>
   )

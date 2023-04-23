@@ -98,7 +98,7 @@ export interface RepoOwner {
   site_admin: boolean
 }
 
-// Navigation link type
+// Navigation link props
 export type NavigationLinkItem = {
   path?: string,
   text: string,
