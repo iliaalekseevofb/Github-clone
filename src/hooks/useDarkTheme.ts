@@ -6,8 +6,8 @@ export function useDarkTheme() {
   const [darkTheme, setDarkTheme] = useLocalStorage<boolean>("dark-theme", true);
 
   useEffect(() => {
-    const className = "dark-theme";
-    const element = window.document.body;
+    const className: string = "dark";
+    const element: HTMLElement = document.documentElement;
     // if dark theme is enabled, add necessary class
     if (darkTheme) {
       element.classList.add(className);
@@ -18,5 +18,6 @@ export function useDarkTheme() {
   }, [darkTheme]); // Called if color theme was changed
 
 
-  return {darkTheme, setDarkTheme};
+  // @ts-ignore
+  return {darkTheme, toggleDarkTheme: () => setDarkTheme((prev: boolean) => !prev) };
 }

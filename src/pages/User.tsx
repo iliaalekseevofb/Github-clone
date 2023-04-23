@@ -18,7 +18,7 @@ const User = () => {
   });
 
   return (
-    <div>
+    <div className="bg-white dark:bg-black">
       <div>
         {isUsersSearchError && <p>Error</p>}
         {isUserSearchLoading && <p>Loading...</p>}
