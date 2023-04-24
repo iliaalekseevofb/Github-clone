@@ -16,7 +16,7 @@ const Navbar = (user: UserDetailsItem) => {
           <NavigationLink path={`/${user?.login}/repos`} text="Repositories" disabled={false} icon={<BookmarkSquareIcon />}/>
           <NavigationLink path='/' text="Projects" disabled={true} icon={<TableCellsIcon />}/>
           <NavigationLink path='/' text="Packages" disabled={true} icon={<CubeIcon />}/>
-          <NavigationLink path='/' text="Stars" disabled={true} icon={<StarIcon />}/>
+          <NavigationLink path='/' text="Stars" disabled={false} icon={<StarIcon />}/>
         </nav>
       </div>
     </div>

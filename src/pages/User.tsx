@@ -21,13 +21,13 @@ const User = () => {
   }] = useLazyGetReposByUserQuery();
 
   useEffect(() => {
-    if (user == undefined) {
-      fetchUserInfo('iliaalekseevofb');
-      fetchUserReposInfo('iliaalekseevofb');
-    } else {
-      fetchUserInfo(user!);
-      fetchUserReposInfo(user!);
-    }
+    // if (user == undefined) {
+    //   fetchUserInfo('iliaalekseevofb');
+    //   fetchUserReposInfo('iliaalekseevofb');
+    // } else {
+    //   fetchUserInfo(user!);
+    //   fetchUserReposInfo(user!);
+    // }
   }, [user])
 
   if (isUserLoading || isUserReposLoading) {

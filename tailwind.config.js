@@ -16,7 +16,8 @@ export default {
         "gray-600": "#21262D",
         "gray-700": "#161B22",
         "gray-800": "#0D1117",
-        "blue-700": "#2F81F7"
+        "blue-700": "#2F81F7",
+        "orange-400": "#F78166"
       },
       spacing: {
         "15": "60px"
