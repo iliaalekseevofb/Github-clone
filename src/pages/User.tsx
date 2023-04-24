@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Outlet, useParams } from 'react-router-dom';
 import { useLazyGetUserInfoQuery, useLazyGetReposByUserQuery } from "../store/api/github.api";
+import Navbar from '../components/User/Navbar';
 
 const User = () => {
   const { user } = useParams<string>();
@@ -39,7 +40,7 @@ const User = () => {
 
   if (isUserError || isUserReposError) {
     return (
-      <div>
+      <div className="w-full h-full">
         An error occurred while fetching
       </div>
     )
@@ -47,6 +48,7 @@ const User = () => {
 
   return (
     <div className="bg-white dark:bg-gray-800">
+      <Navbar {...userData!} />
       <div>
         <span>{userData?.name}</span>
         <img src={userData?.avatar_url} alt="User avatar" />

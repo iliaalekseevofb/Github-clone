@@ -15,7 +15,7 @@ const NavigationLink = (props: NavigationLinkItem) => {
 
   return (
     <NavLink
-      to={props.path!}
+      to={props.path}
       className={`${commonNavLinkClassName} cursor-pointer"`}
     >
       {props.text}
