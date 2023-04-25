@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { Navbar, Footer } from './components';
-import { Home, User, Overview, Repositories, Repository } from './pages';
+import { Home, Overview, Repositories, Repository, Stars, User } from './pages';
 
 function App () {
   return (
@@ -12,6 +12,7 @@ function App () {
           <Route index element={<Overview />} />
           <Route path="/:user/overview" index element={<Overview />}/>
           <Route path="/:user/repositories" element={<Repositories />}/>
+          <Route path="/:user/stars" element={<Stars />}/>
         </Route>
         <Route path="/:user/:repository" element={<Repository />} />
       </Routes>

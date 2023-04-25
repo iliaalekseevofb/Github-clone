@@ -31,6 +31,10 @@ body {
 }
 
 @layer components {
+  .dark-theme-toggle {
+    @apply w-full h-full hover:opacity-70 duration-default
+  }
+
   .user-link {
     @apply flex items-center w-full h-full mr-3 text-sm border-b-2 border-transparent cursor-pointer
   }

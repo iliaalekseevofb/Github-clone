@@ -21,13 +21,13 @@ const User = () => {
   }] = useLazyGetReposByUserQuery();
 
   useEffect(() => {
-    // if (user == undefined) {
-    //   fetchUserInfo('iliaalekseevofb');
-    //   fetchUserReposInfo('iliaalekseevofb');
-    // } else {
-    //   fetchUserInfo(user!);
-    //   fetchUserReposInfo(user!);
-    // }
+    if (user == undefined) {
+      fetchUserInfo('iliaalekseevofb');
+      fetchUserReposInfo('iliaalekseevofb');
+    } else {
+      fetchUserInfo(user!);
+      fetchUserReposInfo(user!);
+    }
   }, [user])
 
   if (isUserLoading || isUserReposLoading) {
@@ -48,7 +48,7 @@ const User = () => {
 
   return (
     <div className="bg-white dark:bg-gray-800">
-      <Navbar {...userData!} />
+      <Navbar userLogin={userData ? userData.login : 'iliaalekseevofb'} />
       <div>
         <span>{userData?.name}</span>
         <img src={userData?.avatar_url} alt="User avatar" />

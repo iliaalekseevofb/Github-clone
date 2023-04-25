@@ -10,8 +10,8 @@ const Search = () => {
   const [searchInput, setSearchInput] = useState<string>('');
   const [isDropdownVisible, setIsDropdownVisible] = useState<boolean>(false);
   const navigate: NavigateFunction = useNavigate();
-
   const debounced = useDebounce(searchInput);
+
   const {
     isError: isUsersSearchError,
     isLoading: isUsersSearchLoading,
@@ -22,8 +22,9 @@ const Search = () => {
   });
 
   const handleOnUserClick = (userLogin: string): void => {
-    navigate(`/${userLogin}`);
+    navigate(`/${userLogin}/overview`);
     setIsDropdownVisible(false);
+    setSearchInput('');
   }
 
   useEffect(() => {
@@ -35,6 +36,7 @@ const Search = () => {
       <input
         type="text"
         placeholder="Search for GitHub username..."
+        value={searchInput}
         className={`${debounced.length > 3 && usersData?.length! > 0 ? 'w-96' : 'w-64'} duration-default h-8 px-3 border border-gray-300 outline-none ${isDropdownVisible ? 'rounded-t-md' : 'rounded-md'} bg-gray-800 text-sm text-gray-100`}
         onChange={e => setSearchInput(e.target.value)}
       />

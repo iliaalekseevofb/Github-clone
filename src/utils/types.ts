@@ -4,7 +4,7 @@ import React from 'react';
 export type NavigationLinkItem = {
   path: string,
   text: string,
-  disabled: boolean,
+  disabled?: boolean,
 }
 
 export type UserNavigationLinkItem = NavigationLinkItem & {
