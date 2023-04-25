@@ -50,7 +50,6 @@ const User = () => {
     <div className="bg-white dark:bg-gray-800">
       <Navbar userLogin={userData ? userData.login : 'iliaalekseevofb'} />
       <div>
-        <span>{userData?.name}</span>
         <img src={userData?.avatar_url} alt="User avatar" />
       </div>
 
