@@ -1,3 +1,4 @@
+export { default as Home } from './Home';
 export { default as Overview } from './Overview';
 export { default as User } from './User';
 export { default as Repositories } from './Repositories';

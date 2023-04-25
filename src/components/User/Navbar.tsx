@@ -13,7 +13,7 @@ const Navbar = (user: UserDetailsItem) => {
         <div className="w-64 min-w-64 lg:w-80 lg:min-w-80 mr-4 duration-default bg-gray-300 rounded-lg" />
         <nav className="flex items-center">
           <NavigationLink path={`/${user?.login}/overview`} text="Overview" disabled={false} icon={<BookOpenIcon />}/>
-          <NavigationLink path={`/${user?.login}/repos`} text="Repositories" disabled={false} icon={<BookmarkSquareIcon />}/>
+          <NavigationLink path={`/${user?.login}/repositories`} text="Repositories" disabled={false} icon={<BookmarkSquareIcon />}/>
           <NavigationLink path='/' text="Projects" disabled={true} icon={<TableCellsIcon />}/>
           <NavigationLink path='/' text="Packages" disabled={true} icon={<CubeIcon />}/>
           <NavigationLink path='/' text="Stars" disabled={false} icon={<StarIcon />}/>

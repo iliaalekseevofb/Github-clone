@@ -8,10 +8,9 @@ import DarkThemeToggle from "./Navbar/DarkThemeToggle";
 const navigationLinks: NavigationLinkItem[] = [
   {path: '/', text: 'Pull requests', disabled: true},
   {path: '/', text: 'Issues', disabled: true},
-  {path: '/', text: 'Pull requests', disabled: true},
-  {path: '/', text: 'Issues', disabled: true},
-  {path: '/', text: 'Pull requests', disabled: true},
-  {path: '/', text: 'Issues', disabled: true}
+  {path: '/', text: 'Codespaces', disabled: true},
+  {path: '/', text: 'Merketplace', disabled: true},
+  {path: '/', text: 'Explore', disabled: true},
 ]
 
 const Navbar = () => {

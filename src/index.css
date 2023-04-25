@@ -29,3 +29,9 @@ body {
     transform: rotate(360deg);
   }
 }
+
+@layer components {
+  .user-link {
+    @apply flex items-center w-full h-full mr-3 text-sm border-b-2 border-transparent cursor-pointer
+  }
+}
