@@ -1,19 +1,21 @@
 import { NavLink } from "react-router-dom";
 import { GithubMark } from "../assets";
-import { NavigationLinkItem } from "../utils/types";
+import { NavigationLinkItem } from "../types/types";
 import Search from "./Navbar/Search";
 import NavigationLink from "./Navbar/NavigationLink";
 import DarkThemeToggle from "./Navbar/DarkThemeToggle";
 
-const navigationLinks: NavigationLinkItem[] = [
-  {path: '/', text: 'Pull requests', disabled: true},
-  {path: '/', text: 'Issues', disabled: true},
-  {path: '/', text: 'Codespaces', disabled: true},
-  {path: '/', text: 'Merketplace', disabled: true},
-  {path: '/', text: 'Explore', disabled: true},
-]
+const GITHUB_BASE_URL = "https://github.com/";
 
 const Navbar = () => {
+  const navigationLinks: NavigationLinkItem[] = [
+    {path: GITHUB_BASE_URL, text: 'Pull requests', external: true},
+    {path: GITHUB_BASE_URL, text: 'Issues', external: true},
+    {path: GITHUB_BASE_URL, text: 'Codespaces', external: true},
+    {path: GITHUB_BASE_URL, text: 'Merketplace', external: true},
+    {path: GITHUB_BASE_URL, text: 'Explore', external: true},
+  ]
+
   return (
     <nav className="flex justify-center items-center w-full h-15 px-4 md:px-6 lg:px-8 bg-gray-700 duration-default">
       <div className="flex justify-between items-center w-full">
@@ -27,7 +29,12 @@ const Navbar = () => {
           </NavLink>
           <Search />
           {navigationLinks?.map((navLink: NavigationLinkItem, index: number) => (
-            <NavigationLink key={index} path={navLink.path} text={navLink.text} disabled={navLink.disabled} />
+            <NavigationLink
+              key={index}
+              path={navLink.path}
+              text={navLink.text}
+              external={navLink.external}
+            />
           ))}
         </div>
         <DarkThemeToggle />

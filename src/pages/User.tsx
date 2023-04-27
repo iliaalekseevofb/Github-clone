@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Outlet, useParams } from 'react-router-dom';
-import { useLazyGetUserInfoQuery, useLazyGetReposByUserQuery } from "../store/api/github.api";
+import { useLazyGetUserInfoQuery, useLazyGetReposByUserQuery } from "../store/api/api";
 import Navbar from '../components/User/Navbar';
 
 const User = () => {
@@ -21,12 +21,12 @@ const User = () => {
   }] = useLazyGetReposByUserQuery();
 
   useEffect(() => {
-    if (user == undefined) {
+    if (user) {
+      fetchUserInfo(user);
+      fetchUserReposInfo(user);
+    } else {
       fetchUserInfo('iliaalekseevofb');
       fetchUserReposInfo('iliaalekseevofb');
-    } else {
-      fetchUserInfo(user!);
-      fetchUserReposInfo(user!);
     }
   }, [user])
 

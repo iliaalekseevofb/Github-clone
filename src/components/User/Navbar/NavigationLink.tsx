@@ -1,7 +1,7 @@
 import {NavLink} from "react-router-dom";
 import { UserNavigationLinkItem } from "../../../utils/types";
 
-const NavigationLink = ({ path, text, disabled, icon }: UserNavigationLinkItem) => {
+const NavigationLink = ({ path, text, external, icon }: UserNavigationLinkItem) => {
   const NavigationLinkInner = () => {
     return (
       <div className="flex items-center rounded-md px-2 py-1 hover:bg-gray-300">
@@ -15,11 +15,11 @@ const NavigationLink = ({ path, text, disabled, icon }: UserNavigationLinkItem) 
     )
   }
 
-  if (disabled) {
+  if (external) {
     return (
-      <div className="user-link cursor-not-allowed">
+      <a href={path} target="_blank" className="user-link">
         <NavigationLinkInner />
-      </div>
+      </a>
     )
   }
 

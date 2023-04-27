@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import {NavigateFunction, useNavigate} from "react-router-dom";
 import UserCircleIcon from '@heroicons/react/20/solid/UserCircleIcon';
 import ArrowUturnLeftIcon from '@heroicons/react/20/solid/ArrowUturnLeftIcon';
-import { useSearchUsersQuery } from "../../store/api/github.api";
+import { useSearchUsersQuery } from "../../store/api/api";
 import {useDebounce} from "../../hooks/useDebounce";
-import {UserSearchItem} from "../../utils/interfaces";
+import {UserSearchItem} from "../../types/types";
 
 const Search = () => {
   const [searchInput, setSearchInput] = useState<string>('');

@@ -1,5 +1,4 @@
 import React from 'react';
-import NavigationLink from "../components/Navbar/NavigationLink";
 
 // User search
 export interface UserSearchResponse {
@@ -135,4 +134,15 @@ export interface UserDetailsItem {
   following: number
   created_at: string
   updated_at: string
+}
+
+// Navigation
+export type NavigationLinkItem = {
+  path: string,
+  text: string,
+  external: boolean,
+}
+
+export type UserNavigationLinkItem = NavigationLinkItem & {
+  icon: React.ReactNode
 }
