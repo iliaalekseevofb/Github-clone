@@ -1,5 +1,5 @@
 import {NavLink} from "react-router-dom";
-import { UserNavigationLinkItem } from "../../../utils/types";
+import { UserNavigationLinkItem } from "../../../types/types";
 
 const NavigationLink = ({ path, text, external, icon }: UserNavigationLinkItem) => {
   const NavigationLinkInner = () => {

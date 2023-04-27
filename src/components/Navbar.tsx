@@ -1,11 +1,10 @@
 import { NavLink } from "react-router-dom";
 import { GithubMark } from "../assets";
 import { NavigationLinkItem } from "../types/types";
+import { GITHUB_BASE_URL } from "../utils/constants";
 import Search from "./Navbar/Search";
 import NavigationLink from "./Navbar/NavigationLink";
 import DarkThemeToggle from "./Navbar/DarkThemeToggle";
-
-const GITHUB_BASE_URL = "https://github.com/";
 
 const Navbar = () => {
   const navigationLinks: NavigationLinkItem[] = [
