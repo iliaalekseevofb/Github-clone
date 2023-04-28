@@ -16,7 +16,7 @@ const RepoCard = (props: RepoCardProps) => {
           <BookmarkSquareIcon className="w-5 h-5" />
         </span>
         <NavLink
-          className="font-semibold text-sm text-blue-700 text-ellipsis overflow-hidden"
+          className="font-semibold text-sm text-blue-700 hover:underline text-ellipsis overflow-hidden"
           to={`/${props.RepoItem.owner.login}/${props.RepoItem.name}`}
         >
           {props.RepoItem.name}

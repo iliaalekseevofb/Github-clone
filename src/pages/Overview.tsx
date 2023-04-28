@@ -1,5 +1,5 @@
 import { useOutletContext } from "react-router-dom";
-import RepoCard from "../components/User/RepoCard";
+import RepoCard from "../components/Overview/RepoCard";
 import {RepoItem} from "../types/types";
 
 const Overview = () => {

@@ -1,6 +1,18 @@
+import { useOutletContext } from "react-router-dom";
+import {RepoItem} from "../types/types";
+import RepoListItem from "../components/Repositories/RepoListItem";
+
 const Repositories = () => {
+  const userReposData: RepoItem[] = useOutletContext();
+
   return (
-    <div>Repositories</div>
+    <div className="w-full">
+      <ul className="w-full">
+        {userReposData?.map((repoItem: RepoItem) => (
+          <RepoListItem key={repoItem.full_name} repoItem={repoItem} />
+        ))}
+      </ul>
+    </div>
   )
 }
 
