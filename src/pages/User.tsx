@@ -53,7 +53,7 @@ const User = () => {
           <div className="shrink-0 w-64 min-w-64 lg:w-72 lg:min-w-72 -mt-16 mr-6 duration-default">
             <img
               src={userData?.avatar_url}
-              className="h-64 min-h-64 lg:h-72 lg:min-h-72 rounded-full object-cover border border-gray-300 duration-default"
+              className="h-64 min-h-64 lg:h-72 lg:min-h-72 rounded-full object-cover duration-default"
               alt="User avatar"
             />
             <div className='w-full py-4'>
@@ -65,12 +65,14 @@ const User = () => {
               <p className="group flex items-center hover:text-blue-700 cursor-pointer duration-default">
                 <UsersIcon className="w-4 h-4 mr-1" />
                 <span>
-                  <span className="text-gray-100 group-hover:text-blue-700 duration-default">{userData?.followers}</span> followers
+                  <span className="text-gray-100 group-hover:text-blue-700 duration-default">{userData?.followers}</span>
+                  <span className="ml-1">{userData?.followers === 1 ? 'follower' : 'followers'}</span>
                 </span>
               </p>
               <span className="mx-2 text-gray-100">·</span>
               <p className="group hover:text-blue-700 cursor-pointer">
-                <span className="text-gray-100 group-hover:text-blue-700 duration-default">{userData?.following}</span> following
+                <span className="text-gray-100 group-hover:text-blue-700 duration-default">{userData?.following}</span>
+                <span className="ml-1">following</span>
               </p>
             </div>
           </div>

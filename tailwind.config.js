@@ -5,8 +5,21 @@ export default {
     "./index.html",
     "./src/**/*.{ts,tsx}",
   ],
+  fontSize: {
+    'xs': '12px',
+    'sm': '14px',
+    'base': '16px',
+    'xl': '20px',
+    '2xl': '24px'
+  },
   theme: {
     extend: {
+      spacing: {
+        "15": "60px"
+      },
+      transitionDuration: {
+        'default': '200ms'
+      },
       colors: {
         "gray-100": "#E6EDF3",
         "gray-200": "#F0F6FC",
@@ -40,6 +53,7 @@ export default {
         "BlitzMax": "#cd6400",
         "Boo": "#d4bec1",
         "Brainfuck": "#2F2530",
+        "C++": "#F34B7D",
         "C#": "#178600",
         "C": "#555555",
         "Chapel": "#8dc63f",
@@ -85,7 +99,7 @@ export default {
         "Game_Maker_Language": "#8fb200",
         "Glyph": "#e4cc98",
         "Gnuplot": "#f0a9f0",
-        "Go": "#375eab",
+        "Go": "#00ADD8",
         "Golo": "#88562A",
         "Gosu": "#82937f",
         "Grammatical_Framework": "#79aa7a",
@@ -193,6 +207,7 @@ export default {
         "Squirrel": "#800000",
         "Stan": "#b2011d",
         "Standard_ML": "#dc566d",
+        "Starlark": "#76D275",
         "SuperCollider": "#46390b",
         "Swift": "#ffac45",
         "SystemVerilog": "#DAE1C2",
@@ -218,20 +233,7 @@ export default {
         "XQuery": "#5232e7",
         "Zephir": "#118f9e"
       },
-      spacing: {
-        "15": "60px"
-      },
-      transitionDuration: {
-        'default': '200ms'
-      }
     },
-    fontSize: {
-      'xs': '12px',
-      'sm': '14px',
-      'base': '16px',
-      'xl': '20px',
-      '2xl': '24px'
-    }
   },
   plugins: [],
 }
