@@ -1,6 +1,23 @@
+import { useOutletContext } from "react-router-dom";
+import RepoCard from "../components/User/RepoCard";
+import {RepoItem} from "../types/types";
+
 const Overview = () => {
+  const userReposData: RepoItem[] = useOutletContext();
+
   return (
-    <div>Overview</div>
+    <div>
+      <h3 className="text-base text-gray-100">Random repositories</h3>
+      <div className="grid grid-cols-2 gap-4 mt-2" >
+        {userReposData?.slice(0, 6).map((repoItem: RepoItem) => (
+          <RepoCard
+            key={repoItem.name}
+            languageColorClass={`bg-${repoItem.language}`}
+            RepoItem={repoItem}
+          />
+        ))}
+      </div>
+    </div>
   )
 }
 
