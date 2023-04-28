@@ -40,7 +40,7 @@ export default {
         "BlitzMax": "#cd6400",
         "Boo": "#d4bec1",
         "Brainfuck": "#2F2530",
-        "C_Sharp": "#178600",
+        "C#": "#178600",
         "C": "#555555",
         "Chapel": "#8dc63f",
         "Cirru": "#ccccff",
@@ -227,7 +227,10 @@ export default {
     },
     fontSize: {
       'xs': '12px',
-      'sm': '14px'
+      'sm': '14px',
+      'base': '16px',
+      'xl': '20px',
+      '2xl': '24px'
     }
   },
   plugins: [],

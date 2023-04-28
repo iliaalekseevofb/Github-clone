@@ -4,7 +4,7 @@ import { UserNavigationLinkItem } from "../../../types/types";
 const NavigationLink = ({ path, text, external, icon }: UserNavigationLinkItem) => {
   const NavigationLinkInner = () => {
     return (
-      <div className="flex items-center rounded-md px-2 py-1 hover:bg-gray-300">
+      <div className="flex items-center rounded-md px-2 py-1 hover:bg-gray-300 duration-default">
         <span className="w-5 h-5 mr-1 text-gray-400">
           {icon}
         </span>

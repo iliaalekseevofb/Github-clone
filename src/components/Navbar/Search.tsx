@@ -40,7 +40,7 @@ const Search = () => {
         className={`${debounced.length > 3 && usersData?.length! > 0 ? 'w-96' : 'w-64'} duration-default h-8 px-3 border border-gray-300 outline-none ${isDropdownVisible ? 'rounded-t-md' : 'rounded-md'} bg-gray-800 text-sm text-gray-100`}
         onChange={e => setSearchInput(e.target.value)}
       />
-      {isDropdownVisible && <ul className="absolute top-8 left-0 right-0 max-h-72">
+      {isDropdownVisible && <ul className="absolute top-8 left-0 right-0 z-10 max-h-72">
         {isUsersSearchLoading && <p className="text-center text-gray-300">Loading...</p>}
         {isUsersSearchError && <p className="text-center text-gray-300">An error occurred while fetching data...</p>}
         {usersData?.map((user: UserSearchItem) => (

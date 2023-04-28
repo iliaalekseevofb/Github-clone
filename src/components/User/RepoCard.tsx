@@ -26,10 +26,12 @@ const RepoCard = (props: RepoCardProps) => {
         {props.RepoItem.description}
       </p>
       <div className="flex items-end mt-2">
-        <p className="flex items-center mr-2">
-          <span className={`relative inline-block w-3 h-3 mr-1 rounded-full ${LANGUAGES_COLORS[props.RepoItem.language?.replace(/ /g,"_")]}`} />
-          <span className="text-xs leading-4 text-gray-400">{props.RepoItem.language}</span>
-        </p>
+        {props.RepoItem.language &&
+          <p className="flex items-center mr-2">
+            <span className={`relative inline-block w-3 h-3 mr-1 rounded-full ${LANGUAGES_COLORS[props.RepoItem.language?.replace(/ /g,"_")]}`} />
+            <span className="text-xs leading-4 text-gray-400">{props.RepoItem.language}</span>
+          </p>
+        }
         <p className="flex items-center text-gray-400 hover:text-blue-700 duration-default cursor-pointer">
           <StarIcon className="w-4 h-4 mr-0.5" />
           <span className="text-xs leading-4">{props.RepoItem.stargazers_count}</span>
