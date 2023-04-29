@@ -2,6 +2,9 @@ import { useEffect } from "react";
 import { Outlet, useParams } from 'react-router-dom';
 import { useLazyGetUserInfoQuery, useLazyGetReposByUserQuery } from "../store/api/api";
 import { InnerNavbar, Profile } from '../components';
+import { InnerNavigationLinkItem, Location } from "../types/types";
+import { BookmarkSquareIcon, BookOpenIcon, CubeIcon, StarIcon, TableCellsIcon } from "@heroicons/react/24/outline";
+import { GITHUB_BASE_URL } from "../utils/constants";
 
 const User = () => {
   const { user } = useParams<string>();
@@ -28,6 +31,14 @@ const User = () => {
     }
   }, [user])
 
+  const navigationLinks: InnerNavigationLinkItem[] = [
+    {path: `/${userData?.login}/overview`, text: 'Overview', external: false, icon: <BookOpenIcon />},
+    {path: `/${userData?.login}/repositories`, text: 'Repositories', external: false, icon: <BookmarkSquareIcon />},
+    {path: `${GITHUB_BASE_URL}${userData?.login}/?tab=projects`, text: 'Projects', external: true, icon: <TableCellsIcon />},
+    {path: `${GITHUB_BASE_URL}${userData?.login}/?tab=packages`, text: 'Packages', external: true, icon: <CubeIcon />},
+    {path: `/${userData?.login}/stars`, text: 'Stars', external: false, icon: <StarIcon />},
+  ]
+
   if (isUserLoading || isUserReposLoading) {
     return (
       <div className="w-full h-full">
@@ -45,9 +56,10 @@ const User = () => {
   }
 
   return (
-    <div className="bg-white dark:bg-gray-800">
+    <div>
       <InnerNavbar
-        userLogin={userData ? userData.login : 'iliaalekseevofb'}
+        location={Location.USER_PAGE}
+        navigationLinks={navigationLinks}
       />
       <section className="flex justify-center w-full mt-6 px-4 md:px-6 lg:px-8 duration-default">
         <div className="flex w-full max-w-7xl">

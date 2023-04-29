@@ -171,6 +171,7 @@ export default {
         "PHP": "#4F5D95",
         "PigLatin": "#fcd7de",
         "Pike": "#005390",
+        "PLpgSQL": "#336790",
         "PLSQL": "#dad8d8",
         "PogoScript": "#d80074",
         "Processing": "#0096D8",

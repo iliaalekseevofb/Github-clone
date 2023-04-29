@@ -176,6 +176,13 @@ export type NavigationLinkItem = {
   external: boolean,
 }
 
-export type UserNavigationLinkItem = NavigationLinkItem & {
+export type InnerNavigationLinkItem = NavigationLinkItem & {
   icon: React.ReactNode
+}
+
+// Locations
+export enum Location {
+  USER_PAGE = 'user_page',
+  REPOSITORY_page = 'repository_page',
+  HOME_PAGE = 'main_page'
 }

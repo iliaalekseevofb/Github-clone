@@ -20,7 +20,7 @@ export const api = createApi({
       transformResponse: (response: UserSearchResponse) => response.items
     }),
 
-    // Get user info bu login
+    // Get user info by login
     getUserInfo: build.query<UserDetailsItem, string>({
       query: (userName: string) => ({
         url: `users/${userName}`
@@ -41,5 +41,5 @@ export const api = createApi({
 export const {
   useSearchUsersQuery,
   useLazyGetUserInfoQuery,
-  useLazyGetReposByUserQuery
+  useLazyGetReposByUserQuery,
 } = api;

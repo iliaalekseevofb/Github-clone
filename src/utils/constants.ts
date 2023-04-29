@@ -123,6 +123,7 @@ export const LANGUAGES_COLORS: {[key: string]: string} = {
   "PHP": "bg-PHP",
   "PigLatin": "bg-PigLatin",
   "Pike": "bg-Pike",
+  "PLpgSQL": "bg-PLpgSQL",
   "PLSQL": "bg-PLSQL",
   "PogoScript": "bg-PogoScript",
   "Processing": "bg-Processing",
