@@ -1,13 +1,9 @@
-import NavigationLink from './Navbar/NavigationLink';
+import InnerNavigationLink from './InnerNavbar/InnerNavigationLink';
 import { BookOpenIcon, BookmarkSquareIcon, TableCellsIcon, CubeIcon, StarIcon } from '@heroicons/react/24/outline';
-import { UserNavigationLinkItem } from "../../types/types";
-import { GITHUB_BASE_URL } from "../../utils/constants";
+import { UserNavigationLinkItem } from "../types/types";
+import { GITHUB_BASE_URL } from "../utils/constants";
 
-type NavbarProps = {
-  userLogin: string;
-}
-
-const Navbar = ({ userLogin }: NavbarProps) => {
+const InnerNavbar = ({ userLogin }: { userLogin: string }) => {
   const navigationLinks: UserNavigationLinkItem[] = [
     {path: `/${userLogin}/overview`, text: 'Overview', external: false, icon: <BookOpenIcon />},
     {path: `/${userLogin}/repositories`, text: 'Repositories', external: false, icon: <BookmarkSquareIcon />},
@@ -22,7 +18,7 @@ const Navbar = ({ userLogin }: NavbarProps) => {
         <div className="w-64 min-w-64 lg:w-72 lg:min-w-72 mr-6 duration-default bg-transparent rounded-lg" />
         <div className="flex items-center">
           {navigationLinks?.map((navLink: UserNavigationLinkItem, index: number) => (
-            <NavigationLink
+            <InnerNavigationLink
               key={index}
               path={navLink.path}
               text={navLink.text}
@@ -36,4 +32,4 @@ const Navbar = ({ userLogin }: NavbarProps) => {
   )
 }
 
-export default Navbar;
+export default InnerNavbar;
