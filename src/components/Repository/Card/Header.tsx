@@ -35,7 +35,7 @@ const Header = ({ commitsData }: { commitsData: RepoCommit[] }) => {
           initial_color="white"
         />
       </div>
-      <div className="h-full flex items-center gap-x-4">
+      <div className="hidden md:flex items-center gap-x-4">
         <HeaderLink
           url={ lastCommit.html_url }
           text={ lastCommit.sha }
@@ -49,6 +49,7 @@ const Header = ({ commitsData }: { commitsData: RepoCommit[] }) => {
         <HeaderLink
           url={ lastCommit.html_url }
           text={`${commitsData.length} commits`}
+          initial_color="white"
           icon={<ClockIcon className="w-4 h-4 mr-1" />}
         />
       </div>

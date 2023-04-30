@@ -3,7 +3,7 @@ import { GithubMark } from "../assets";
 
 const Footer = () => {
   return (
-    <NavLink to="/" className="flex items-center justify-center w-full py-2 border-t border-gray-600">
+    <NavLink to="/" className="flex items-center justify-center w-full mt-6 py-2 border-t border-gray-600">
       <img
         src={ GithubMark }
         className="w-8 opacity-10"

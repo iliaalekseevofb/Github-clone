@@ -9,7 +9,7 @@ const BreadCrumbs = () => {
       <BookmarkSquareIcon className="w-5 h-5 mr-1" />
       <NavLink className="text-blue-700 hover:underline" to={`/${user}/overview`}>{user}</NavLink>
       <span className="mx-1">/</span>
-      <NavLink className="text-blue-700 hover:underline" to={`/${user}/${repository}`}>{repository}</NavLink>
+      <NavLink className="font-semibold text-blue-700 hover:underline" to={`/${user}/${repository}`}>{repository}</NavLink>
     </div>
   )
 }
