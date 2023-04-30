@@ -170,10 +170,10 @@ export interface UserDetailsItem {
 }
 
 // Repo commits details
-export interface RepoCommits {
+export interface RepoCommit {
   sha: string
   node_id: string
-  commit: RepoCommit
+  commit: RepoCommitInner
   url: string
   html_url: string
   comments_url: string
@@ -182,7 +182,7 @@ export interface RepoCommits {
   parents: object
 }
 
-export interface RepoCommit {
+export interface RepoCommitInner {
   author: RepoCommitAuthor
   committer: RepoCommitAuthor
   message: string
@@ -224,6 +224,11 @@ export interface CommitAuthor {
   received_events_url: string
   type: string
   site_admin: boolean
+}
+
+// Repository languages
+export type RepoLanguages = {
+  [key: string]: number
 }
 
 // Navigation

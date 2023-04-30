@@ -42,6 +42,13 @@ export const api = createApi({
         url: `repos/${userName}/${repoName}/commits`,
         per_page: 10
       })
+    }),
+
+    // Get repository languages
+    getRepoLanguages: build.query<any, object>({
+      query: ({ userName, repoName }: { userName: string, repoName: string }) => ({
+        url: `/repos/${userName}/${repoName}/languages`
+      })
     })
   })
 })
@@ -51,4 +58,5 @@ export const {
   useLazyGetUserInfoQuery,
   useLazyGetReposByUserQuery,
   useLazyGetRepoCommitsQuery,
+  useLazyGetRepoLanguagesQuery,
 } = api;

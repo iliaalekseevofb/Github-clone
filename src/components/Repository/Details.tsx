@@ -1,29 +1,54 @@
-import {RepoCommits, RepoItem} from "../../utils/types";
 import {NavLink, useParams} from "react-router-dom";
 import {CheckIcon, ClockIcon} from "@heroicons/react/24/outline";
+import {RepoCommit, RepoItem, RepoLanguages} from "../../utils/types";
+import {LANGUAGES_COLORS} from "../../utils/constants";
 
-const Details = ({ repoItem, commitsData }: { repoItem: RepoItem, commitsData: RepoCommits[] }) => {
+const Details = ({
+    repoItem,
+    commitsData,
+    languagesData
+  }: {
+    repoItem: RepoItem,
+    commitsData: RepoCommit[],
+    languagesData: RepoLanguages
+  }) => {
+  let languagesSum: number = 0,
+    languagesPercents: RepoLanguages = {};
+
+  type Mapish = { [k: string]: boolean };
+  type M = keyof Mapish
+
   const { user} = useParams<string>();
-  const lastCommit = commitsData[0];
+  const lastCommit: RepoCommit = commitsData[0];
 
-  const formatter = new Intl.DateTimeFormat('en', { month: 'short' });
+  const formatter: Intl.DateTimeFormat = new Intl.DateTimeFormat('en', { month: 'short' });
 
-  const lastCommitDate = new Date(lastCommit.commit.committer.date);
-  const lastCommitMonth = formatter.format(lastCommitDate);
+  const lastCommitDate: Date = new Date(lastCommit.commit.committer.date);
+  const lastCommitMonth: string = formatter.format(lastCommitDate);
+
+  if (languagesData) {
+    languagesSum = Object.values(languagesData).reduce((a, b) => a + b, 0);
+    Object.keys(languagesData).map((lang: string): void => {
+      const languagePercent: number = Number(((languagesData[lang] / languagesSum) * 100).toFixed(1));
+      languagesPercents = {...languagesPercents, ...{ [lang]: languagePercent }};
+    })
+  }
+
+  debugger;
 
   return (
     <div className="w-full border border-gray-300 rounded-md bg-gray-700 overflow-hidden">
       <div className="flex items-center w-full h-12 px-4 bg-blue-900 border-b border-gray-300">
         <div className="flex items-center">
-          <NavLink className="w-8 h-8 rounded-full" to={`/${lastCommit.author.login}`}>
+          <NavLink className="w-8 h-8 rounded-full" to={`/${lastCommit.author ? lastCommit.author.login : lastCommit.committer.login}`}>
             <img
-              src={lastCommit.author.avatar_url}
+              src={lastCommit.author ? lastCommit.author.avatar_url : lastCommit.committer.avatar_url}
               className="w-full h-full rounded-full  object-cover"
-              alt={lastCommit.author.login}
+              alt={lastCommit.author ? lastCommit.author.login : lastCommit.committer.login}
             />
           </NavLink>
-          <NavLink className="mx-4 text-sm text-gray-100 hover:underline" to={`/${lastCommit.author.login}`}>
-            { lastCommit.author.login }
+          <NavLink className="mx-4 text-sm text-gray-100 hover:underline" to={`/${lastCommit.author ? lastCommit.author.login : lastCommit.committer.login}`}>
+            { lastCommit.author ? lastCommit.author.login : lastCommit.committer.login }
           </NavLink>
         </div>
         <a
@@ -63,14 +88,22 @@ const Details = ({ repoItem, commitsData }: { repoItem: RepoItem, commitsData: R
           </a>
         </div>
       </div>
-      <div className="flex justify-between items-center w-full p-4">
+      <div className="flex justify-between gap-x-5 w-full p-4">
         <section className="flex-1">
           <h3 className="font-semibold text-base text-gray-100">About</h3>
           <p className="text-sm text-gray-400">{ repoItem.description }</p>
         </section>
         <section className="flex-1">
-          <h3 className="font-semibold text-base text-gray-100">About</h3>
-
+          <h3 className="font-semibold text-base text-gray-100">Languages</h3>
+          <div className="w-full flex items-center rounded-md overflow-hidden">
+            {Object.keys(languagesPercents).map((lang: string) => (
+              <span
+                key={lang}
+                style={{ width: `${languagesPercents[lang]}%` }}
+                className={`relative inline-block h-2 ${LANGUAGES_COLORS[lang.replace(/ /g,"_")]}`}
+              />
+            ))}
+          </div>
         </section>
         <section className="flex-1">
 
