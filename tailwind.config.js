@@ -236,6 +236,7 @@ export default {
         "Verilog": "#b2b7f8",
         "VHDL": "#adb2cb",
         "VimL": "#199f4b",
+        "Vim_Script": "#199f4b",
         "Visual_Basic": "#945db7",
         "Volt": "#1F1F1F",
         "Vue": "#2c3e50",

@@ -20,6 +20,8 @@ import { Location } from "../utils/enums";
 import { InnerNavbar } from "../components";
 import BreadCrumbs from "../components/Repository/BreadCrumbs";
 import Details from "../components/Repository/Details";
+import Spinner from "../components/Common/Spinner";
+import Error from "../components/Common/Error";
 
 const Repository = () => {
   const { user, repository } = useParams<string>();
@@ -76,8 +78,26 @@ const Repository = () => {
 
   return (
     <div className="mt-4">
-      { (isUserReposLoading || isRepoCommitsLoading) && <div className="spinner" /> }
-      { (isUserReposSuccess && isRepoCommitsSuccess) &&
+      {(
+        isUserReposLoading ||
+        isRepoCommitsLoading ||
+        isRepoContributorsLoading ||
+        isRepoLanguagesLoading
+      ) && <Spinner /> }
+
+      {(
+        isUserReposError ||
+        isRepoCommitsError ||
+        isRepoContributorsError ||
+        isRepoLanguagesError
+      ) && <Error errorMessage="Something went wrong while fetching repository data :(" />}
+
+      {(
+        isUserReposSuccess &&
+        isRepoCommitsSuccess &&
+        isRepoContributorsSuccess &&
+        isRepoLanguagesSuccess
+      ) &&
         <div className="w-full h-full">
           <BreadCrumbs />
           <InnerNavbar

@@ -4,7 +4,7 @@ import { Home, Overview, Repositories, Repository, Stars, User } from './pages';
 
 function App () {
   return (
-    <main className="flex flex-col justify-between min-h-screen bg-white dark:bg-gray-800">
+    <main className="flex flex-col justify-between w-full min-h-screen bg-white dark:bg-gray-800">
       <div>
         <Navbar />
         <Routes>

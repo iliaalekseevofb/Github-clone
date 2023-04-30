@@ -203,6 +203,7 @@ export const LANGUAGES_COLORS: {[key: string]: string} = {
   "Verilog": "bg-Verilog",
   "VHDL": "bg-VHDL",
   "VimL": "bg-VimL",
+  "Vim_Script": "bg-Vim_Script",
   "Visual_Basic": "bg-Visual_Basic",
   "Volt": "bg-Volt",
   "Vue": "bg-Vue",

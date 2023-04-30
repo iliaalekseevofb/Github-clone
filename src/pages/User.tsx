@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { Outlet, useParams } from 'react-router-dom';
 import { useLazyGetUserInfoQuery, useLazyGetReposByUserQuery } from "../store/api/api";
 import { InnerNavbar, Profile } from '../components';
+import Spinner from "../components/Common/Spinner";
+import Error from "../components/Common/Error";
 import { InnerNavigationLinkItem } from "../utils/types";
 import { Location } from "../utils/enums";
 import { BookmarkSquareIcon, BookOpenIcon, CubeIcon, StarIcon, TableCellsIcon } from "@heroicons/react/24/outline";
@@ -13,12 +15,14 @@ const User = () => {
   const [fetchUserInfo, {
     isLoading: isUserLoading,
     isError: isUserError,
+    isSuccess: isUserSuccess,
     data: userData
   }] = useLazyGetUserInfoQuery();
 
   const [fetchUserReposInfo, {
     isLoading: isUserReposLoading,
     isError: isUserReposError,
+    isSuccess: isUserReposSuccess,
     data: userReposData
   }] = useLazyGetReposByUserQuery();
 
@@ -40,35 +44,25 @@ const User = () => {
     {path: `/${userData?.login}/stars`, text: 'Stars', external: false, icon: <StarIcon />},
   ]
 
-  if (isUserLoading || isUserReposLoading) {
-    return (
-      <div className="w-full h-full">
-        <span className="spinner"></span>
-      </div>
-    )
-  }
-
-  if (isUserError || isUserReposError) {
-    return (
-      <div className="w-full h-full">
-        An error occurred while fetching
-      </div>
-    )
-  }
-
   return (
     <div className="mt-6">
-      <InnerNavbar
-        location={Location.USER_PAGE}
-        navigationLinks={navigationLinks}
-      />
-      <section className="flex justify-center w-full mt-6 px-4 md:px-6 lg:px-8 duration-default">
-        <div className="flex w-full max-w-7xl">
-          <Profile userData={userData!} />
+      { isUserLoading || isUserReposLoading ? <Spinner />
+      : (isUserError || isUserReposError) ? <Error errorMessage="Something went wrong while fetching user data :(" />
+      : (isUserSuccess && isUserReposSuccess) ? (
+        <div className="w-full h-full">
+          <InnerNavbar
+            location={Location.USER_PAGE}
+            navigationLinks={navigationLinks}
+          />
+          <section className="flex justify-center w-full mt-6 px-4 md:px-6 lg:px-8 duration-default">
+            <div className="flex w-full max-w-7xl">
+              <Profile userData={userData!} />
 
-          <Outlet context={ userReposData } />
-        </div>
-      </section>
+              <Outlet context={ userReposData } />
+            </div>
+          </section>
+        </div>) : ''
+      }
     </div>
   )
 }
