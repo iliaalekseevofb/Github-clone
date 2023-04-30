@@ -19,12 +19,15 @@ const Details = ({
     <div className="w-full border border-gray-300 rounded-md bg-gray-700 overflow-hidden">
       <Header commitsData={ commitsData } />
       <div className="flex justify-between gap-x-6 w-full p-4">
-        <About repoItemDescription={ repoItem.description } />
-        <Languages languagesData={ languagesData } />
-        <Contributors
-          contributorsData={ contributorsData }
-          repoItem={ repoItem }
-        />
+        { repoItem && repoItem.description ? <About repoItemDescription={ repoItem.description } /> : ''}
+        { languagesData && Object.keys(languagesData).length ? <Languages languagesData={ languagesData } /> : '' }
+        { contributorsData && contributorsData.length
+          ? <Contributors
+              contributorsData={ contributorsData }
+              repoItem={ repoItem }
+            />
+          : ''
+        }
       </div>
     </div>
   )

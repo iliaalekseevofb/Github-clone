@@ -101,6 +101,7 @@ export const LANGUAGES_COLORS: {[key: string]: string} = {
   "Lex": "bg-Lex",
   "LFE": "bg-LFE",
   "LiveScript": "bg-LiveScript",
+  "Logos": "bg-Logos",
   "LOLCODE": "bg-LOLCODE",
   "LookML": "bg-LookML",
   "LSL": "bg-LSL",
@@ -211,5 +212,6 @@ export const LANGUAGES_COLORS: {[key: string]: string} = {
   "xBase": "bg-xBase",
   "XC": "bg-XC",
   "XQuery": "bg-XQuery",
+  "Yacc": "bg-Yacc",
   "Zephir": "bg-Zephir"
 }

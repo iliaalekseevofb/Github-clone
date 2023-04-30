@@ -134,6 +134,7 @@ export default {
         "Lex": "#DBCA00",
         "LFE": "#004200",
         "LiveScript": "#499886",
+        "Logos": "#CCC",
         "LOLCODE": "#cc9900",
         "LookML": "#652B81",
         "LSL": "#3d9970",
@@ -244,6 +245,7 @@ export default {
         "xBase": "#403a40",
         "XC": "#99DA07",
         "XQuery": "#5232e7",
+        "Yacc": "#4B6C4B",
         "Zephir": "#118f9e"
       },
     },
