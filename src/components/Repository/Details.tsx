@@ -34,8 +34,6 @@ const Details = ({
     })
   }
 
-  debugger;
-
   return (
     <div className="w-full border border-gray-300 rounded-md bg-gray-700 overflow-hidden">
       <div className="flex items-center w-full h-12 px-4 bg-blue-900 border-b border-gray-300">
@@ -91,17 +89,29 @@ const Details = ({
       <div className="flex justify-between gap-x-5 w-full p-4">
         <section className="flex-1">
           <h3 className="font-semibold text-base text-gray-100">About</h3>
-          <p className="text-sm text-gray-400">{ repoItem.description }</p>
+          <p className="mt-4 text-sm text-gray-400">{ repoItem.description }</p>
         </section>
         <section className="flex-1">
           <h3 className="font-semibold text-base text-gray-100">Languages</h3>
-          <div className="w-full flex items-center rounded-md overflow-hidden">
+          <div className="w-full flex items-center mt-4 rounded-md overflow-hidden">
             {Object.keys(languagesPercents).map((lang: string) => (
               <span
                 key={lang}
                 style={{ width: `${languagesPercents[lang]}%` }}
                 className={`relative inline-block h-2 ${LANGUAGES_COLORS[lang.replace(/ /g,"_")]}`}
               />
+            ))}
+          </div>
+          <div className="flex items-center flex-wrap gap-x-4 gap-y-2 mt-4">
+            {Object.keys(languagesPercents).map((lang: string) => (
+              <div className="group flex items-center text-sm cursor-pointer">
+                <span
+                  key={lang}
+                  className={`relative inline-block w-3 h-3 mr-2 rounded-full ${LANGUAGES_COLORS[lang.replace(/ /g,"_")]}`}
+                />
+                <span className="mr-1 text-gray-100 group-hover:text-blue-700">{lang}:</span>
+                <span className="text-gray-400 group-hover:text-blue-700">{languagesPercents[lang]}%</span>
+              </div>
             ))}
           </div>
         </section>

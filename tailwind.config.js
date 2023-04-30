@@ -55,6 +55,7 @@ export default {
         "BlitzMax": "#cd6400",
         "Boo": "#d4bec1",
         "Brainfuck": "#2F2530",
+        "Batchfile": "#C1F12E",
         "C++": "#F34B7D",
         "C#": "#178600",
         "C": "#555555",

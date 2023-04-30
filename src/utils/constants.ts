@@ -22,6 +22,7 @@ export const LANGUAGES_COLORS: {[key: string]: string} = {
   "BlitzMax": "bg-BlitzMax",
   "Boo": "bg-Boo",
   "Brainfuck": "bg-Brainfuck",
+  "Batchfile": "bg-Batchfile",
   "C++": "bg-C++",
   "C#": "bg-C#",
   "C": "bg-C",
