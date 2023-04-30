@@ -43,7 +43,7 @@ body {
 }
 
 @layer components {
-  .dark-theme-toggle {
+  .nav-button {
     @apply w-full h-full hover:opacity-70 duration-default
   }
 

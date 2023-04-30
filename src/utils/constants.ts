@@ -1,5 +1,5 @@
-export const GITHUB_BASE_URL = "https://github.com/";
-export const GITHUB_API_BASE_URL = "https://api.github.com/";
+export const GITHUB_BASE_URL = "https://github.com";
+export const GITHUB_API_BASE_URL = "https://api.github.com";
 export const LANGUAGES_COLORS: {[key: string]: string} = {
   "ABAP": "bg-ABAP",
   "ActionScript": "bg-ActionScript",

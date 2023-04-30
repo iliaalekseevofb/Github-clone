@@ -7,10 +7,10 @@ const DarkThemeToggle = () => {
   const { darkTheme, toggleDarkTheme } = useDarkTheme();
 
   return (
-    <button className="w-7 h-7 text-gray-200">
+    <button className="shrink-0 w-7 h-7 text-gray-200">
       {darkTheme
-        ? <SunIcon onClick={() => toggleDarkTheme()} className="dark-theme-toggle" />
-        : <MoonIcon onClick={() => toggleDarkTheme()} className="dark-theme-toggle" />
+        ? <SunIcon onClick={() => toggleDarkTheme()} className="nav-button" />
+        : <MoonIcon onClick={() => toggleDarkTheme()} className="nav-button" />
       }
     </button>
   )

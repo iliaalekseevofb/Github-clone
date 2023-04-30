@@ -32,12 +32,12 @@ const Search = () => {
   }, [debounced, usersData])
 
   return (
-    <div className=" ml-4 relative">
+    <div className="lg:ml-4 mb-2 lg:mb-0 relative">
       <input
         type="text"
         placeholder="Search for GitHub username..."
         value={searchInput}
-        className={`${debounced.length > 3 && usersData?.length! > 0 ? 'w-96' : 'w-64'} duration-default h-8 px-3 border border-gray-300 outline-none ${isDropdownVisible ? 'rounded-t-md' : 'rounded-md'} bg-gray-800 text-sm text-gray-100`}
+        className={`${debounced.length > 3 && usersData?.length! > 0 ? 'w-full lg:w-96' : 'w-full lg:w-64'} duration-default h-8 px-3 border border-gray-300 outline-none ${isDropdownVisible ? 'rounded-t-md' : 'rounded-md'} bg-gray-800 text-sm text-gray-100`}
         onChange={e => setSearchInput(e.target.value)}
       />
       {isDropdownVisible && <ul className="absolute top-8 left-0 right-0 z-10 max-h-72">
