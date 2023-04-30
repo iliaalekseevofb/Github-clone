@@ -1,22 +1,21 @@
 import {NavLink, useParams} from "react-router-dom";
 import {CheckIcon, ClockIcon} from "@heroicons/react/24/outline";
-import {RepoCommit, RepoItem, RepoLanguages} from "../../utils/types";
+import {RepoCommit, RepoContributor, RepoItem, RepoLanguages} from "../../utils/types";
 import {LANGUAGES_COLORS} from "../../utils/constants";
 
 const Details = ({
     repoItem,
     commitsData,
-    languagesData
+    languagesData,
+    contributorsData
   }: {
     repoItem: RepoItem,
     commitsData: RepoCommit[],
-    languagesData: RepoLanguages
+    languagesData: RepoLanguages,
+    contributorsData: RepoContributor[]
   }) => {
   let languagesSum: number = 0,
     languagesPercents: RepoLanguages = {};
-
-  type Mapish = { [k: string]: boolean };
-  type M = keyof Mapish
 
   const { user} = useParams<string>();
   const lastCommit: RepoCommit = commitsData[0];
@@ -41,7 +40,7 @@ const Details = ({
           <NavLink className="w-8 h-8 rounded-full" to={`/${lastCommit.author ? lastCommit.author.login : lastCommit.committer.login}`}>
             <img
               src={lastCommit.author ? lastCommit.author.avatar_url : lastCommit.committer.avatar_url}
-              className="w-full h-full rounded-full  object-cover"
+              className="w-full h-full rounded-full object-cover"
               alt={lastCommit.author ? lastCommit.author.login : lastCommit.committer.login}
             />
           </NavLink>
@@ -75,10 +74,10 @@ const Details = ({
         >
           on { lastCommitDate.getUTCDate() }, { lastCommitMonth } { lastCommitDate.getFullYear() }
         </a>
-        <div className="mx-4 flex items-center group">
+        <div className="group mx-4 flex items-center cursor-pointer">
           <ClockIcon className="w-4 h-4 mr-1 text-gray-400 group-hover:text-blue-700" />
           <a
-            className="text-sm text-gray-400 hover:text-blue-700 hover:underline whitespace-nowrap text-ellipsis overflow-hidden"
+            className="text-sm text-gray-400 group-hover:text-blue-700 group-hover:underline whitespace-nowrap text-ellipsis overflow-hidden"
             href={ lastCommit.html_url }
             target="_blank"
           >
@@ -86,7 +85,7 @@ const Details = ({
           </a>
         </div>
       </div>
-      <div className="flex justify-between gap-x-5 w-full p-4">
+      <div className="flex justify-between gap-x-6 w-full p-4">
         <section className="flex-1">
           <h3 className="font-semibold text-base text-gray-100">About</h3>
           <p className="mt-4 text-sm text-gray-400">{ repoItem.description }</p>
@@ -104,9 +103,8 @@ const Details = ({
           </div>
           <div className="flex items-center flex-wrap gap-x-4 gap-y-2 mt-4">
             {Object.keys(languagesPercents).map((lang: string) => (
-              <div className="group flex items-center text-sm cursor-pointer">
+              <div key={lang} className="group flex items-center text-sm cursor-pointer">
                 <span
-                  key={lang}
                   className={`relative inline-block w-3 h-3 mr-2 rounded-full ${LANGUAGES_COLORS[lang.replace(/ /g,"_")]}`}
                 />
                 <span className="mr-1 text-gray-100 group-hover:text-blue-700">{lang}:</span>
@@ -116,7 +114,26 @@ const Details = ({
           </div>
         </section>
         <section className="flex-1">
-
+          <h3 className="font-semibold text-base text-gray-100">Contributors</h3>
+          <div className="flex items-center mt-4 mb-2">
+            {contributorsData?.slice(0, 6).map((contributor) => (
+              <NavLink key={contributor.login} className="w-8 h-8 rounded-full mr-2" to={`/${contributor.login}/overview`}>
+                <img
+                  className="w-full h-full rounded-full object-cover"
+                  src={contributor.avatar_url}
+                  alt={contributor.login}
+                />
+              </NavLink>
+            ))}
+          </div>
+          {contributorsData.length > 6 &&
+            <a
+              href={`${repoItem.html_url}/contributors`}
+              className="text-sm text-blue-700 underline"
+            >
+              See all contributors
+            </a>
+          }
         </section>
       </div>
     </div>

@@ -1,5 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { UserSearchResponse, UserSearchItem, RepoItem, UserDetailsItem, RepoCommit } from '../../utils/types';
+import {
+  UserSearchResponse,
+  UserSearchItem,
+  RepoItem,
+  UserDetailsItem,
+  RepoCommit,
+  RepoLanguages, RepoContributor
+} from '../../utils/types';
 import { GITHUB_API_BASE_URL } from "../../utils/constants";
 
 export const api = createApi({
@@ -45,11 +52,19 @@ export const api = createApi({
     }),
 
     // Get repository languages
-    getRepoLanguages: build.query<any, object>({
+    getRepoLanguages: build.query<RepoLanguages, object>({
       query: ({ userName, repoName }: { userName: string, repoName: string }) => ({
         url: `/repos/${userName}/${repoName}/languages`
       })
-    })
+    }),
+
+    // Get repository contributors
+    getRepoContributors: build.query<RepoContributor[], object>({
+      query: ({ userName, repoName }: { userName: string, repoName: string }) => ({
+        url: `/repos/${userName}/${repoName}/contributors`,
+        per_page: 10
+      })
+    }),
   })
 })
 
@@ -59,4 +74,5 @@ export const {
   useLazyGetReposByUserQuery,
   useLazyGetRepoCommitsQuery,
   useLazyGetRepoLanguagesQuery,
+  useLazyGetRepoContributorsQuery,
 } = api;

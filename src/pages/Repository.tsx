@@ -9,7 +9,12 @@ import {
 } from "@heroicons/react/24/outline";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import {useLazyGetRepoCommitsQuery, useLazyGetRepoLanguagesQuery, useLazyGetReposByUserQuery} from "../store/api/api";
+import {
+  useLazyGetRepoCommitsQuery,
+  useLazyGetRepoContributorsQuery,
+  useLazyGetRepoLanguagesQuery,
+  useLazyGetReposByUserQuery
+} from "../store/api/api";
 import { InnerNavigationLinkItem, RepoItem } from "../utils/types";
 import { Location } from "../utils/enums";
 import { InnerNavbar } from "../components";
@@ -42,10 +47,18 @@ const Repository = () => {
     data: repoLanguagesData
   }] = useLazyGetRepoLanguagesQuery();
 
+  const [fetchRepoContributors, {
+    isLoading: isRepoContributorsLoading,
+    isError: isRepoContributorsError,
+    isSuccess: isRepoContributorsSuccess,
+    data: repoContributorsData
+  }] = useLazyGetRepoContributorsQuery();
+
   useEffect(() => {
     fetchUserReposInfo(user!);
     fetchRepoCommits({ userName: user, repoName: repository });
     fetchRepoLanguages({ userName: user, repoName: repository });
+    fetchRepoContributors({ userName: user, repoName: repository });
   }, []);
 
   currentRepository =
@@ -76,6 +89,7 @@ const Repository = () => {
               repoItem={currentRepository!}
               commitsData={repoCommitsData!}
               languagesData={repoLanguagesData!}
+              contributorsData={repoContributorsData!}
             />
           </div>
         </div>
