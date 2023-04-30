@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { GITHUB_API_BASE_URL } from "../../utils/constants";
 import {
   UserSearchResponse,
   UserSearchItem,
@@ -7,7 +8,6 @@ import {
   RepoCommit,
   RepoLanguages, RepoContributor
 } from '../../utils/types';
-import { GITHUB_API_BASE_URL } from "../../utils/constants";
 
 export const api = createApi({
   reducerPath: "api",
