@@ -46,7 +46,7 @@ const User = () => {
 
   return (
     <div className="mt-6">
-      { isUserLoading || isUserReposLoading ? <Spinner />
+      { (isUserLoading || isUserReposLoading) ? <Spinner />
       : (isUserError || isUserReposError) ? <Error errorMessage="Something went wrong while fetching user data :(" />
       : (isUserSuccess && isUserReposSuccess) ? (
         <div className="w-full h-full">
