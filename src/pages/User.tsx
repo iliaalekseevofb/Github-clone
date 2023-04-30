@@ -50,17 +50,33 @@ const User = () => {
       : (isUserError || isUserReposError) ? <Error errorMessage="Something went wrong while fetching user data :(" />
       : (isUserSuccess && isUserReposSuccess) ? (
         <div className="w-full h-full">
-          <InnerNavbar
-            location={Location.USER_PAGE}
-            navigationLinks={navigationLinks}
-          />
-          <section className="flex justify-center w-full mt-6 px-4 md:px-6 lg:px-8 duration-default">
-            <div className="flex w-full max-w-7xl">
-              <Profile userData={userData!} />
+          {/* For cases when screen size larger than 1024px */}
+          <div className="hidden lg:block">
+            <InnerNavbar
+              location={Location.USER_PAGE}
+              navigationLinks={navigationLinks}
+            />
+            <section className="flex justify-center w-full mt-6 px-4 md:px-6 lg:px-8 duration-default">
+              <div className="flex w-full max-w-7xl">
+                <Profile userData={userData!} />
+                <Outlet context={ userReposData } />
+              </div>
+            </section>
+          </div>
 
+          {/* For cases when screen size smaller than 1024px */}
+          <div className="block lg:hidden">
+            <div className="w-full mt-6 px-4 md:px-6 duration-default">
+              <Profile userData={userData!} />
+            </div>
+            <InnerNavbar
+              location={Location.USER_PAGE}
+              navigationLinks={navigationLinks}
+            />
+            <div className="w-full mt-6 px-4 md:px-6 duration-default">
               <Outlet context={ userReposData } />
             </div>
-          </section>
+          </div>
         </div>) : ''
       }
     </div>

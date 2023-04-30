@@ -8,7 +8,7 @@ const Overview = () => {
   return (
     <div className="w-full">
       <h3 className="text-base text-gray-100">Random repositories</h3>
-      <div className="w-full grid grid-cols-2 gap-4 mt-2" >
+      <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-4 mt-2" >
         {userReposData?.slice(0, 6).map((repoItem: RepoItem) => (
           <RepoCard
             key={repoItem.name}
