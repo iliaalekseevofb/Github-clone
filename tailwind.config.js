@@ -30,6 +30,8 @@ export default {
         "gray-700": "#161B22",
         "gray-800": "#0D1117",
         "blue-700": "#2F81F7",
+        "blue-800": "#193357",
+        "blue-900": "#121D2F",
         "orange-400": "#F78166",
         // GitHub languages colors
         "ABAP": "#E8274B",

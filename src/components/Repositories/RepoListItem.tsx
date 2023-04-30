@@ -1,4 +1,4 @@
-import {RepoItem} from "../../types/types";
+import {RepoItem} from "../../utils/types";
 import {LANGUAGES_COLORS} from "../../utils/constants";
 import {ShareIcon, StarIcon} from "@heroicons/react/24/outline";
 import {NavLink} from "react-router-dom";

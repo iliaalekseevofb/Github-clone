@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { InnerNavigationLinkItem } from "../../types/types";
+import { InnerNavigationLinkItem } from "../../utils/types";
 
 const NavigationLink = ({ path, text, external, icon }: InnerNavigationLinkItem) => {
   const NavigationLinkInner = () => {

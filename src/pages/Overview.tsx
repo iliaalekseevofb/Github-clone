@@ -1,6 +1,6 @@
 import { useOutletContext } from "react-router-dom";
 import RepoCard from "../components/Overview/RepoCard";
-import {RepoItem} from "../types/types";
+import {RepoItem} from "../utils/types";
 
 const Overview = () => {
   const userReposData: RepoItem[] = useOutletContext();

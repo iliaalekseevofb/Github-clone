@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { GithubMark } from "../assets";
-import { NavigationLinkItem } from "../types/types";
+import { NavigationLinkItem } from "../utils/types";
 import { GITHUB_BASE_URL } from "../utils/constants";
 import Search from "./Navbar/Search";
 import NavigationLink from "./Navbar/NavigationLink";

@@ -1,5 +1,5 @@
 import { UsersIcon } from "@heroicons/react/24/outline";
-import { UserDetailsItem } from "../../types/types";
+import { UserDetailsItem } from "../../utils/types";
 
 const Profile = ({ userData }: { userData: UserDetailsItem }) => {
   return (

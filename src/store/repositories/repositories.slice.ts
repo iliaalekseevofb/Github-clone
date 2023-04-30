@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RepoItem } from "../../types/types";
+import { RepoItem } from "../../utils/types";
 
 const initialState: RepoItem[] = [];
 export const repositoriesSlice = createSlice({

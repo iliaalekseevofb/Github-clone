@@ -1,4 +1,4 @@
-import { NavigationLinkItem } from "../../types/types";
+import { NavigationLinkItem } from "../../utils/types";
 
 const NavigationLink = (props: NavigationLinkItem) => {
   const commonNavLinkClassName: string =

@@ -1,5 +1,5 @@
 import { useOutletContext } from "react-router-dom";
-import { RepoItem } from "../types/types";
+import { RepoItem } from "../utils/types";
 import RepoListItem from "../components/Repositories/RepoListItem";
 
 const Repositories = () => {

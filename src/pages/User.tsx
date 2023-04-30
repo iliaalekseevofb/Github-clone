@@ -2,7 +2,8 @@ import { useEffect } from "react";
 import { Outlet, useParams } from 'react-router-dom';
 import { useLazyGetUserInfoQuery, useLazyGetReposByUserQuery } from "../store/api/api";
 import { InnerNavbar, Profile } from '../components';
-import { InnerNavigationLinkItem, Location } from "../types/types";
+import { InnerNavigationLinkItem } from "../utils/types";
+import { Location } from "../utils/enums";
 import { BookmarkSquareIcon, BookOpenIcon, CubeIcon, StarIcon, TableCellsIcon } from "@heroicons/react/24/outline";
 import { GITHUB_BASE_URL } from "../utils/constants";
 
@@ -56,7 +57,7 @@ const User = () => {
   }
 
   return (
-    <div>
+    <div className="mt-6">
       <InnerNavbar
         location={Location.USER_PAGE}
         navigationLinks={navigationLinks}

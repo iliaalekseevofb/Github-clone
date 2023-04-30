@@ -7,18 +7,17 @@ import {
   ShieldExclamationIcon,
   ChartBarSquareIcon
 } from "@heroicons/react/24/outline";
-import { InnerNavbar } from "../components";
-import { InnerNavigationLinkItem, Location, RepoItem } from "../types/types";
-import { useRepositories } from "../hooks/useRepositories"
-import { useParams } from "react-router-dom";
-import { useLazyGetReposByUserQuery } from "../store/api/api";
 import { useEffect } from "react";
-import { useActions } from "../hooks/useActions";
+import { useParams } from "react-router-dom";
+import { useLazyGetRepoCommitsQuery, useLazyGetReposByUserQuery } from "../store/api/api";
+import { InnerNavigationLinkItem, RepoItem } from "../utils/types";
+import { Location } from "../utils/enums";
+import { InnerNavbar } from "../components";
+import BreadCrumbs from "../components/Repository/BreadCrumbs";
+import Details from "../components/Repository/Details";
 
 const Repository = () => {
   const { user, repository } = useParams<string>();
-  const { setRepositories } = useActions();
-  const repositories = useRepositories();
   let currentRepository: RepoItem | undefined,
     navigationLinks: InnerNavigationLinkItem[] | undefined;
 
@@ -29,16 +28,20 @@ const Repository = () => {
     data: userReposData
   }] = useLazyGetReposByUserQuery();
 
+  const [fetchRepoCommits, {
+    isLoading: isRepoCommitsLoading,
+    isError: isRepoCommitsError,
+    isSuccess: isRepoCommitsSuccess,
+    data: repoCommitsData
+  }] = useLazyGetRepoCommitsQuery();
+
   useEffect(() => {
     fetchUserReposInfo(user!);
+    fetchRepoCommits({ userName: user, repoName: repository });
   }, []);
 
-  useEffect(() => {
-    setRepositories(userReposData!);
-  }, [userReposData]);
-
   currentRepository =
-    repositories.find((repoItem: RepoItem) => repoItem.name === repository);
+    userReposData?.find((repoItem: RepoItem) => repoItem.name === repository);
 
   navigationLinks = [
     {path: `/${user}/${repository}`, text: 'Code', external: false, icon: <CodeBracketIcon />},
@@ -51,11 +54,23 @@ const Repository = () => {
   ]
 
   return (
-    <div>
-      <InnerNavbar
-        location={Location.REPOSITORY_page}
-        navigationLinks={navigationLinks!}
-      />
+    <div className="mt-4">
+      { (isUserReposLoading || isRepoCommitsLoading) && <div className="spinner" /> }
+      { (isUserReposSuccess && isRepoCommitsSuccess) &&
+        <div className="w-full h-full">
+          <BreadCrumbs />
+          <InnerNavbar
+            location={Location.REPOSITORY_page}
+            navigationLinks={navigationLinks!}
+          />
+          <div className="flex items-center w-full mt-4 px-4 md:px-6 lg:px-8 duration-default">
+            <Details
+              repoItem={currentRepository!}
+              commitsData={repoCommitsData!}
+            />
+          </div>
+        </div>
+      }
     </div>
   )
 }

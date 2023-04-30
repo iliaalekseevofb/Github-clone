@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { UserSearchResponse, UserSearchItem, RepoItem, UserDetailsItem } from '../../types/types';
+import { UserSearchResponse, UserSearchItem, RepoItem, UserDetailsItem, RepoCommits } from '../../utils/types';
 import { GITHUB_API_BASE_URL } from "../../utils/constants";
 
 export const api = createApi({
@@ -35,6 +35,14 @@ export const api = createApi({
         per_page: 10
       })
     }),
+
+    // Get repository commits
+    getRepoCommits: build.query<RepoCommits[], object>({
+      query: ({ userName, repoName }: { userName: string, repoName: string }) => ({
+        url: `repos/${userName}/${repoName}/commits`,
+        per_page: 10
+      })
+    })
   })
 })
 
@@ -42,4 +50,5 @@ export const {
   useSearchUsersQuery,
   useLazyGetUserInfoQuery,
   useLazyGetReposByUserQuery,
+  useLazyGetRepoCommitsQuery,
 } = api;

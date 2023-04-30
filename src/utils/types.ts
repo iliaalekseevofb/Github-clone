@@ -169,6 +169,63 @@ export interface UserDetailsItem {
   updated_at: string
 }
 
+// Repo commits details
+export interface RepoCommits {
+  sha: string
+  node_id: string
+  commit: RepoCommit
+  url: string
+  html_url: string
+  comments_url: string
+  author: CommitAuthor
+  committer: CommitAuthor
+  parents: object
+}
+
+export interface RepoCommit {
+  author: RepoCommitAuthor
+  committer: RepoCommitAuthor
+  message: string
+  tree: object
+  url: string
+  comment_count: number
+  verification: Verification
+}
+
+export interface Verification {
+  verified: boolean
+  reason: string
+  signature: any
+  payload: any
+}
+
+export interface RepoCommitAuthor {
+  name: string
+  email: string
+  date: string
+}
+
+export interface CommitAuthor {
+  login: string
+  id: number
+  node_id: string
+  avatar_url: string
+  gravatar_id: string
+  url: string
+  html_url: string
+  followers_url: string
+  following_url: string
+  gists_url: string
+  starred_url: string
+  subscriptions_url: string
+  organizations_url: string
+  repos_url: string
+  events_url: string
+  received_events_url: string
+  type: string
+  site_admin: boolean
+}
+
 // Navigation
 export type NavigationLinkItem = {
   path: string,
@@ -178,11 +235,4 @@ export type NavigationLinkItem = {
 
 export type InnerNavigationLinkItem = NavigationLinkItem & {
   icon: React.ReactNode
-}
-
-// Locations
-export enum Location {
-  USER_PAGE = 'user_page',
-  REPOSITORY_page = 'repository_page',
-  HOME_PAGE = 'main_page'
 }
