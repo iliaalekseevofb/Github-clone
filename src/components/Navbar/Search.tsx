@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {NavigateFunction, useNavigate} from "react-router-dom";
 import UserCircleIcon from '@heroicons/react/20/solid/UserCircleIcon';
 import ArrowUturnLeftIcon from '@heroicons/react/20/solid/ArrowUturnLeftIcon';
@@ -6,11 +6,11 @@ import { useSearchUsersQuery } from "../../store/api/api";
 import {useDebounce} from "../../hooks/useDebounce";
 import {UserSearchItem} from "../../utils/types";
 
-const Search = () => {
+const Search = ({ setIsDropdownOpened }: { setIsDropdownOpened:  React.Dispatch<React.SetStateAction<boolean>> }) => {
   const [searchInput, setSearchInput] = useState<string>('');
   const [isDropdownVisible, setIsDropdownVisible] = useState<boolean>(false);
   const navigate: NavigateFunction = useNavigate();
-  const debounced = useDebounce(searchInput);
+  const debounced: string = useDebounce(searchInput);
 
   const {
     isError: isUsersSearchError,
@@ -25,6 +25,10 @@ const Search = () => {
     navigate(`/${userLogin}/overview`);
     setIsDropdownVisible(false);
     setSearchInput('');
+
+    // if (typeof setIsDropdownOpened === 'function') {
+    //   setIsDropdownOpened(false);
+    // }
   }
 
   useEffect(() => {

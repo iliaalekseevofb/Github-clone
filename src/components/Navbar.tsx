@@ -32,7 +32,7 @@ const Navbar = () => {
               alt="GitHub mark"
             />
           </NavLink>
-          <Search />
+          <Search setIsDropdownOpened={ setIsDropdownOpened } />
           {navigationLinks?.map((navLink: NavigationLinkItem, index: number) => (
             <NavigationLink
               key={index}
