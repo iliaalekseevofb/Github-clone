@@ -14,7 +14,7 @@ const InnerNavbar = ({ location, navigationLinks }: InnerNavbarProps) => {
         { location === Location.USER_PAGE &&
           <div className="hidden lg:block w-64 min-w-64 lg:w-72 lg:min-w-72 mr-6 duration-default bg-transparent rounded-lg" />
         }
-        <div className="flex items-center">
+        <div className="flex items-center overflow-x-auto">
           {navigationLinks?.map((navLink: InnerNavigationLinkItem, index: number) => (
             <InnerNavigationLink
               key={index}
