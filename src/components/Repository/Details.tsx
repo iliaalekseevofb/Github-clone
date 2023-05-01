@@ -1,17 +1,19 @@
 import { type RepoCommit, type RepoContributor, type RepoItem, type RepoLanguages } from '../../utils/types'
 import { Header, About, Languages, Contributors } from './Card'
 
+type DetailsProps = {
+  repoItem: RepoItem
+  commitsData: RepoCommit[]
+  languagesData: RepoLanguages
+  contributorsData: RepoContributor[]
+}
+
 const Details = ({
   repoItem,
   commitsData,
   languagesData,
   contributorsData
-}: {
-  repoItem: RepoItem
-  commitsData: RepoCommit[]
-  languagesData: RepoLanguages
-  contributorsData: RepoContributor[]
-}): JSX.Element => {
+}: DetailsProps): JSX.Element => {
   return (
     <div className="w-full border border-gray-250 dark:border-gray-300 rounded-md bg-transparent dark:bg-gray-700 overflow-hidden">
       <Header commitsData={ commitsData } />

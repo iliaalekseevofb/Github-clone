@@ -1,4 +1,6 @@
-interface HeaderLinkProps {
+import React from 'react'
+
+type HeaderLinkProps = {
   url: string
   text: string
   initial_color?: string

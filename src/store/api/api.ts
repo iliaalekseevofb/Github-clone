@@ -6,7 +6,8 @@ import {
   type RepoItem,
   type UserDetailsItem,
   type RepoCommit,
-  type RepoLanguages, type RepoContributor
+  type RepoLanguages,
+  type RepoContributor
 } from '../../utils/types'
 
 export const api = createApi({

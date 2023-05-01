@@ -2,7 +2,7 @@ import InnerNavigationLink from './InnerNavbar/InnerNavigationLink'
 import { type InnerNavigationLinkItem } from '../utils/types'
 import { Location } from '../utils/enums'
 
-interface InnerNavbarProps {
+type InnerNavbarProps = {
   location: Location
   navigationLinks: InnerNavigationLinkItem[]
 }

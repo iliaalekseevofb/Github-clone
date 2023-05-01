@@ -3,11 +3,7 @@ import { LANGUAGES_COLORS } from '../../utils/constants'
 import { ShareIcon, StarIcon } from '@heroicons/react/24/outline'
 import { NavLink } from 'react-router-dom'
 
-interface RepoListItemProps {
-  repoItem: RepoItem
-}
-
-const RepoListItem = ({ repoItem }: RepoListItemProps): JSX.Element => {
+const RepoListItem = ({ repoItem }: { repoItem: RepoItem }): JSX.Element => {
   return (
     <li className="flex w-full justify-between items-start first:pt-0 py-6 border-b last:border-none border-gray-250 dark:border-gray-600">
       <div className="w-2/3">

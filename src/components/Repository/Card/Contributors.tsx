@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom'
 import { type RepoContributor, type RepoItem } from '../../../utils/types'
 import SectionTitle from './SectionTitle'
 
-interface ContributorsProps {
+type ContributorsProps = {
   contributorsData: RepoContributor[]
   repoItem: RepoItem
 }

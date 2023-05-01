@@ -2,7 +2,7 @@ import { type NavigationLinkItem } from '../../utils/types'
 import Search from './Search'
 import NavigationLink from './NavigationLink'
 
-interface DropdownMenuProps {
+type DropdownMenuProps = {
   toggleDropdownMenu: () => void
   isDropdownOpened: boolean
   navigationLinks: NavigationLinkItem[]
