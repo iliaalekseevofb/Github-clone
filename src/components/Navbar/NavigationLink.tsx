@@ -5,7 +5,7 @@ const NavigationLink = ({ navLink }: { navLink: NavigationLinkItem }): JSX.Eleme
     <a
       href={navLink.path}
       target="_blank"
-      className="w-full lg:w-auto flex lg:block items-center h-10 lg:h-auto lg:ml-4 text-sm text-gray-200 hover:text-gray-500 font-semibold duration-default cursor-pointer whitespace-nowrap border-y border-gray-300 lg:border-none " rel="noreferrer"
+      className="w-full lg:w-auto flex lg:block items-center h-10 lg:h-auto lg:ml-4 text-sm text-gray-200 hover:text-gray-500 font-semibold duration-default cursor-pointer whitespace-nowrap border-t border-gray-300 lg:border-none"
     >
       {navLink.text}
     </a>
