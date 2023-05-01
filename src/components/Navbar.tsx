@@ -12,6 +12,10 @@ import {useState} from "react";
 const Navbar = () => {
   const [ isDropdownOpened, setIsDropdownOpened ] = useState<boolean>(false);
 
+  const toggleDropdownMenu = () => {
+    setIsDropdownOpened(prev => !prev);
+  };
+
   const navigationLinks: NavigationLinkItem[] = [
     {path: `${GITHUB_BASE_URL}/pulls`, text: 'Pull requests', external: true},
     {path: `${GITHUB_BASE_URL}/issues`, text: 'Issues', external: true},
@@ -32,7 +36,7 @@ const Navbar = () => {
               alt="GitHub mark"
             />
           </NavLink>
-          <Search setIsDropdownOpened={ setIsDropdownOpened } />
+          <Search />
           {navigationLinks?.map((navLink: NavigationLinkItem, index: number) => (
             <NavigationLink
               key={index}
@@ -49,7 +53,7 @@ const Navbar = () => {
       <div className="z-20 flex h-full lg:hidden justify-between items-center bg-gray-700 w-full">
         <button
           className="border-none outline-none"
-          onClick={() => setIsDropdownOpened(prev => !prev)}
+          onClick={() => toggleDropdownMenu()}
         >
           <Bars3Icon className="w-8 h-8 text-gray-100 hover:opacity-70 duration-default" />
         </button>
@@ -63,6 +67,7 @@ const Navbar = () => {
         <DarkThemeToggle />
       </div>
       <DropdownMenu
+        toggleDropdownMenu={ toggleDropdownMenu }
         isDropdownOpened={ isDropdownOpened }
         navigationLinks={ navigationLinks }
       />

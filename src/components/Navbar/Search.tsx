@@ -6,7 +6,7 @@ import { useSearchUsersQuery } from "../../store/api/api";
 import {useDebounce} from "../../hooks/useDebounce";
 import {UserSearchItem} from "../../utils/types";
 
-const Search = ({ setIsDropdownOpened }: { setIsDropdownOpened:  React.Dispatch<React.SetStateAction<boolean>> }) => {
+const Search = ({ toggleDropdownMenu }: { toggleDropdownMenu?:  () => void }) => {
   const [searchInput, setSearchInput] = useState<string>('');
   const [isDropdownVisible, setIsDropdownVisible] = useState<boolean>(false);
   const navigate: NavigateFunction = useNavigate();
@@ -26,9 +26,9 @@ const Search = ({ setIsDropdownOpened }: { setIsDropdownOpened:  React.Dispatch<
     setIsDropdownVisible(false);
     setSearchInput('');
 
-    // if (typeof setIsDropdownOpened === 'function') {
-    //   setIsDropdownOpened(false);
-    // }
+    if (typeof toggleDropdownMenu === 'function') {
+      toggleDropdownMenu();
+    }
   }
 
   useEffect(() => {
