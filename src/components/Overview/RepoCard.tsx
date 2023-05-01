@@ -23,7 +23,7 @@ const RepoCard = ( { repoItem } : { repoItem: RepoItem }) => {
       <div className="flex items-end mt-2">
         {repoItem.language &&
           <p className="flex items-center mr-2">
-            <span className={`relative inline-block w-3 h-3 mr-1 rounded-full ${LANGUAGES_COLORS[repoItem.language?.replace(/ /g,"_")]}`} />
+            <span className={`relative inline-block w-3 h-3 mr-1 rounded-full ${LANGUAGES_COLORS[repoItem.language?.replace(/ /g,"_").replace(/'/g, '')]}`} />
             <span className="text-xs leading-4 text-gray-300 dark:text-gray-400">{repoItem.language}</span>
           </p>
         }

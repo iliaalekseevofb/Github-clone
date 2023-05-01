@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Navigate, Routes, Route } from 'react-router-dom';
 import { Navbar, Footer } from './components';
 import { Home, Overview, Repositories, Repository, Stars, User } from './pages';
 
@@ -8,7 +8,6 @@ function App () {
       <div>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
           <Route path="/:user" element={<User />}>
             <Route index element={<Overview />} />
             <Route path="/:user/overview" index element={<Overview />}/>
@@ -16,6 +15,7 @@ function App () {
             <Route path="/:user/stars" element={<Stars />}/>
           </Route>
           <Route path="/:user/:repository" element={<Repository />} />
+          <Route path="*" element={<Navigate to="/iliaalekseevofb/overview" replace />} />
         </Routes>
       </div>
       <Footer />
