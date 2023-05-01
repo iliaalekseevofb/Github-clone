@@ -21,8 +21,11 @@ export default {
         'default': '200ms'
       },
       colors: {
+        "gray-50": "#F6F8FA",
         "gray-100": "#E6EDF3",
+        "gray-150": "#EAEEF2",
         "gray-200": "#F0F6FC",
+        "gray-250": "#D0D7DE",
         "gray-300": "#30363D",
         "gray-400": "#7D8590",
         "gray-500": "#C9D1D9",
@@ -30,6 +33,7 @@ export default {
         "gray-700": "#161B22",
         "gray-800": "#0D1117",
         "gray-900": "#1F2328",
+        "blue-300": "#EBF3FF",
         "blue-700": "#2F81F7",
         "blue-800": "#193357",
         "blue-900": "#121D2F",

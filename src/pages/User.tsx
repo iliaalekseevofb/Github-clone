@@ -41,7 +41,7 @@ const User = () => {
     {path: `/${userData?.login}/repositories`, text: 'Repositories', external: false, icon: <BookmarkSquareIcon />},
     {path: `${GITHUB_BASE_URL}/${userData?.login}/?tab=projects`, text: 'Projects', external: true, icon: <TableCellsIcon />},
     {path: `${GITHUB_BASE_URL}/${userData?.login}/?tab=packages`, text: 'Packages', external: true, icon: <CubeIcon />},
-    {path: `/${userData?.login}/stars`, text: 'Stars', external: false, icon: <StarIcon />},
+    {path: `${GITHUB_BASE_URL}/${userData?.login}/?tab=stars`, text: 'Stars', external: true, icon: <StarIcon />},
   ]
 
   return (

@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { RepoContributor, RepoItem } from "../../../utils/types";
+import SectionTitle from "./SectionTitle";
 
 type ContributorsProps = {
   contributorsData: RepoContributor[],
@@ -9,7 +10,7 @@ type ContributorsProps = {
 const Contributors = ({ contributorsData, repoItem }: ContributorsProps ) => {
   return (
     <section className="flex-1">
-      <h3 className="font-semibold text-base text-gray-100">Contributors</h3>
+      <SectionTitle title="Contributors" />
       <div className="flex items-center mt-4 mb-2">
         {contributorsData?.slice(0, 6).map((contributor) => (
           <NavLink key={contributor.login} className="w-8 h-8 rounded-full mr-2" to={`/${contributor.login}/overview`}>

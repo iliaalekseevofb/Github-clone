@@ -30,10 +30,10 @@ const Languages = ({ languagesData }: { languagesData: RepoLanguages }) => {
         {Object.keys(languagesPercents).map((lang: string) => (
           <div key={lang} className="group flex items-center text-sm cursor-pointer">
             <span className={`relative inline-block w-3 h-3 mr-2 rounded-full ${LANGUAGES_COLORS[lang.replace(/ /g,"_")]}`} />
-            <span className="mr-1 text-gray-100 group-hover:text-blue-700">
+            <span className="mr-1 text-gray-900 dark:text-gray-100 group-hover:text-blue-700">
               {lang}:
             </span>
-            <span className="text-gray-400 group-hover:text-blue-700">
+            <span className="text-gray-900 dark:text-gray-400 group-hover:text-blue-700">
               {languagesPercents[lang]}%
             </span>
           </div>

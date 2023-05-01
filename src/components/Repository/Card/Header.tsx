@@ -15,7 +15,7 @@ const Header = ({ commitsData }: { commitsData: RepoCommit[] }) => {
   const lastCommitMonth: string = formatter.format(lastCommitDate);
 
   return (
-    <div className="flex justify-between items-center gap-x-4 w-full h-12 px-4 bg-blue-900 border-b border-gray-300">
+    <div className="flex justify-between items-center gap-x-4 w-full h-12 px-4 bg-gray-50 dark:bg-blue-900 border-b border-gray-250 dark:border-gray-300">
       <div className="flex items-center h-full truncate">
         <div className="flex items-center mr-4">
           <NavLink className="w-8 h-8 rounded-full" to={`/${commitAuthor?.login}`}>
@@ -25,7 +25,7 @@ const Header = ({ commitsData }: { commitsData: RepoCommit[] }) => {
               alt={commitAuthor?.login}
             />
           </NavLink>
-          <NavLink className="ml-4 text-sm text-gray-100 hover:underline" to={`/${commitAuthor?.login}`}>
+          <NavLink className="font-semibold ml-4 text-sm text-gray-900 dark:text-gray-100 hover:underline" to={`/${commitAuthor?.login}`}>
             { commitAuthor?.login }
           </NavLink>
         </div>

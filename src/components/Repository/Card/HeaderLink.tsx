@@ -11,7 +11,7 @@ type HeaderLinkProps = {
 const HeaderLink = ({ url, text, initial_color, width, icon }: HeaderLinkProps) => {
   return (
     <a
-      className={`flex items-center ${initial_color === "white" ? "text-gray-100" : "text-gray-400"} truncate hover:text-blue-700 hover:underline cursor-pointer`}
+      className={`flex items-center ${initial_color === "white" ? "text-gray-900 dark:text-gray-100" : "text-gray-400"} truncate hover:text-blue-700 hover:underline cursor-pointer`}
       href={ url }
       target="_blank"
     >

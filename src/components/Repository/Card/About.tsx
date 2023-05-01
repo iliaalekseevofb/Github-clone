@@ -4,7 +4,7 @@ const About = ({ repoItemDescription }: { repoItemDescription: string }) => {
   return (
     <section className="flex-1">
       <SectionTitle title="About" />
-      <p className="text-sm text-gray-400">{ repoItemDescription }</p>
+      <p className="text-sm text-gray-900 dark:text-gray-400">{ repoItemDescription }</p>
     </section>
   )
 }

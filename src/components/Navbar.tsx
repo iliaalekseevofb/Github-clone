@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { GithubMark } from "../assets";
+import { LogoLight } from "../assets";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import { GITHUB_BASE_URL } from "../utils/constants";
 import { NavigationLinkItem } from "../utils/types";
@@ -31,8 +31,8 @@ const Navbar = () => {
         <div className="flex items-center">
           <NavLink className="shrink-0 w-8" to="/">
             <img
-              className="w-full hover:opacity-70 duration-default"
-              src={GithubMark}
+              className="w-full logo dark:logo-dark hover:opacity-70 duration-default"
+              src={LogoLight}
               alt="GitHub mark"
             />
           </NavLink>
@@ -55,7 +55,7 @@ const Navbar = () => {
         <NavLink className="shrink-0 w-8" to="/">
           <img
             className="w-full hover:opacity-70 duration-default"
-            src={GithubMark}
+            src={LogoLight}
             alt="GitHub mark"
           />
         </NavLink>

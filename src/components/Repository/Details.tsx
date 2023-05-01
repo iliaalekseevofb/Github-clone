@@ -16,7 +16,7 @@ const Details = ({
   contributorsData: RepoContributor[]
 }) => {
   return (
-    <div className="w-full border border-gray-300 rounded-md bg-gray-700 overflow-hidden">
+    <div className="w-full border border-gray-250 dark:border-gray-300 rounded-md bg-transparent dark:bg-gray-700 overflow-hidden">
       <Header commitsData={ commitsData } />
       <div className="flex flex-col lg:flex-row justify-between gap-y-6 lg:gap-x-10 w-full p-4">
         { repoItem && repoItem.description ? <About repoItemDescription={ repoItem.description } /> : ''}

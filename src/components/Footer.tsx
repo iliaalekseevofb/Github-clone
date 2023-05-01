@@ -1,13 +1,13 @@
 import { NavLink } from "react-router-dom";
-import { GithubMark } from "../assets";
+import { LogoDark } from "../assets";
 
 const Footer = () => {
   return (
-    <footer className="flex items-center justify-center w-full mt-6 py-2 border-t border-gray-600">
-      <NavLink to="/">
+    <footer className="flex items-center justify-center w-full mt-6 py-2 border-t border-gray-250 dark:border-gray-600">
+      <NavLink className="shrink-0 w-8" to="/">
         <img
-          src={ GithubMark }
-          className="w-8 opacity-10"
+          className="w-full"
+          src={LogoDark}
           alt="GitHub mark"
         />
       </NavLink>
