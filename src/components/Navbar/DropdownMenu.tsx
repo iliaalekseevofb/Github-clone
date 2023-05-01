@@ -1,6 +1,6 @@
 import { NavigationLinkItem } from "../../utils/types";
 import Search from "./Search";
-import DropdownMenuItem from "./DropdownMenuItem";
+import NavigationLink from "./NavigationLink";
 
 type DropdownMenuProps = {
   toggleDropdownMenu: () => void,
@@ -14,7 +14,7 @@ const DropdownMenu = ({ toggleDropdownMenu, isDropdownOpened, navigationLinks }:
       <Search toggleDropdownMenu={ toggleDropdownMenu } />
       <div className="flex flex-col items-start">
         {navigationLinks?.map((navLink: NavigationLinkItem, index: number) => (
-          <DropdownMenuItem key={ index } navLink={ navLink } />
+          <NavigationLink key={ index } navLink={ navLink } />
         ))}
       </div>
     </nav>

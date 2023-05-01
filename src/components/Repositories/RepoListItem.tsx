@@ -7,7 +7,7 @@ type RepoListItemProps = {
   repoItem: RepoItem
 }
 
-const RepoListItem = ({repoItem}: RepoListItemProps) => {
+const RepoListItem = ({ repoItem }: RepoListItemProps) => {
   return (
     <li className="flex w-full justify-between items-start first:pt-0 py-6  border-b border-gray-600">
       <div className="w-2/3">

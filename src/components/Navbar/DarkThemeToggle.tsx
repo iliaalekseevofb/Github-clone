@@ -1,7 +1,6 @@
 import React from 'react';
+import { SunIcon, MoonIcon } from '@heroicons/react/20/solid';
 import { useDarkTheme } from "../../hooks/useDarkTheme";
-import SunIcon from '@heroicons/react/20/solid/SunIcon';
-import MoonIcon from '@heroicons/react/20/solid/MoonIcon';
 
 const DarkThemeToggle = () => {
   const { darkTheme, toggleDarkTheme } = useDarkTheme();

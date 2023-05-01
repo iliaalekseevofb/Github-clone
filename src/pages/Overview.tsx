@@ -1,6 +1,6 @@
 import { useOutletContext } from "react-router-dom";
+import { RepoItem } from "../utils/types";
 import RepoCard from "../components/Overview/RepoCard";
-import {RepoItem} from "../utils/types";
 
 const Overview = () => {
   const userReposData: RepoItem[] = useOutletContext();
@@ -12,8 +12,7 @@ const Overview = () => {
         {userReposData?.slice(0, 6).map((repoItem: RepoItem) => (
           <RepoCard
             key={repoItem.name}
-            languageColorClass={`bg-${repoItem.language}`}
-            RepoItem={repoItem}
+            repoItem={repoItem}
           />
         ))}
       </div>

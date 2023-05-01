@@ -258,9 +258,9 @@ export interface RepoContributor {
 export type NavigationLinkItem = {
   path: string,
   text: string,
-  external: boolean,
 }
 
 export type InnerNavigationLinkItem = NavigationLinkItem & {
+  external: boolean,
   icon: React.ReactNode
 }

@@ -22,7 +22,7 @@ const NavigationLink = ({ path, text, external, icon }: InnerNavigationLinkItem)
       </a>
     : <NavLink
         to={path}
-        className={({ isActive}) =>
+        className={({ isActive}): string =>
           isActive ? "user-link border-orange-400" : "user-link"
         }
       >

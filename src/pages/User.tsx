@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { Outlet, useParams } from 'react-router-dom';
+import { BookmarkSquareIcon, BookOpenIcon, CubeIcon, StarIcon, TableCellsIcon } from "@heroicons/react/24/outline";
 import { useLazyGetUserInfoQuery, useLazyGetReposByUserQuery } from "../store/api/api";
+import { GITHUB_BASE_URL } from "../utils/constants";
+import { InnerNavigationLinkItem } from "../utils/types";
+import { Location } from "../utils/enums";
 import { InnerNavbar, Profile } from '../components';
 import Spinner from "../components/Common/Spinner";
 import Error from "../components/Common/Error";
-import { InnerNavigationLinkItem } from "../utils/types";
-import { Location } from "../utils/enums";
-import { BookmarkSquareIcon, BookOpenIcon, CubeIcon, StarIcon, TableCellsIcon } from "@heroicons/react/24/outline";
-import { GITHUB_BASE_URL } from "../utils/constants";
 
 const User = () => {
   const { user } = useParams<string>();

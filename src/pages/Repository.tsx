@@ -83,21 +83,21 @@ const Repository = () => {
         isRepoCommitsLoading ||
         isRepoContributorsLoading ||
         isRepoLanguagesLoading
-      ) && <Spinner /> }
+      ) ? <Spinner /> :
 
-      {(
+      (
         isUserReposError ||
         isRepoCommitsError ||
         isRepoContributorsError ||
         isRepoLanguagesError
-      ) && <Error errorMessage="Something went wrong while fetching repository data :(" />}
+      ) ? <Error errorMessage="Something went wrong while fetching repository data :(" /> :
 
-      {(
+      (
         isUserReposSuccess &&
         isRepoCommitsSuccess &&
         isRepoContributorsSuccess &&
         isRepoLanguagesSuccess
-      ) &&
+      ) ?
         <div className="w-full h-full">
           <BreadCrumbs />
           <InnerNavbar
@@ -112,8 +112,7 @@ const Repository = () => {
               contributorsData={repoContributorsData!}
             />
           </div>
-        </div>
-      }
+        </div> : ''}
     </div>
   )
 }
