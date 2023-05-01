@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { LogoLight } from '../assets'
 import { Bars3Icon } from '@heroicons/react/24/outline'
@@ -7,7 +8,6 @@ import Search from './Navbar/Search'
 import NavigationLink from './Navbar/NavigationLink'
 import DarkThemeToggle from './Navbar/DarkThemeToggle'
 import DropdownMenu from './Navbar/DropdownMenu'
-import { useState } from 'react'
 
 const Navbar = (): JSX.Element => {
   const [isDropdownOpened, setIsDropdownOpened] = useState<boolean>(false)

@@ -1,8 +1,5 @@
 import { type RepoCommit, type RepoContributor, type RepoItem, type RepoLanguages } from '../../utils/types'
-import Header from './Card/Header'
-import About from './Card/About'
-import Languages from './Card/Languages'
-import Contributors from './Card/Contributors'
+import { Header, About, Languages, Contributors } from './Card'
 
 const Details = ({
   repoItem,

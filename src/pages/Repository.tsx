@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import {
   CodeBracketIcon,
   EllipsisHorizontalCircleIcon,
@@ -7,8 +9,6 @@ import {
   ShieldExclamationIcon,
   ChartBarSquareIcon
 } from '@heroicons/react/24/outline'
-import { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
 import {
   useLazyGetRepoCommitsQuery,
   useLazyGetRepoContributorsQuery,
@@ -18,10 +18,9 @@ import {
 import { type InnerNavigationLinkItem, type RepoItem } from '../utils/types'
 import { Location } from '../utils/enums'
 import { InnerNavbar } from '../components'
+import { Spinner, Error } from '../components/Common'
 import BreadCrumbs from '../components/Repository/BreadCrumbs'
 import Details from '../components/Repository/Details'
-import Spinner from '../components/Common/Spinner'
-import Error from '../components/Common/Error'
 
 const Repository = (): JSX.Element => {
   const { user, repository } = useParams<string>()
@@ -83,24 +82,22 @@ const Repository = (): JSX.Element => {
         isRepoCommitsLoading ||
         isRepoContributorsLoading ||
         isRepoLanguagesLoading
-      )
-        ? <Spinner />
+      ) ? <Spinner /> : '' }
 
-        : (
-            isUserReposError ||
+      {(
+        isUserReposError ||
         isRepoCommitsError ||
         isRepoContributorsError ||
         isRepoLanguagesError
-          )
-            ? <Error errorMessage="Something went wrong while fetching repository data :(" />
+      ) ? <Error errorMessage="Something went wrong while fetching repository data :(" /> : '' }
 
-            : (
-                isUserReposSuccess &&
+      {(
+        isUserReposSuccess &&
         isRepoCommitsSuccess &&
         isRepoContributorsSuccess &&
         isRepoLanguagesSuccess
-              )
-                ? <div className="w-full h-full">
+      ) ?
+        <div className="w-full h-full">
           <BreadCrumbs />
           <InnerNavbar
             location={Location.REPOSITORY_page}
@@ -114,8 +111,7 @@ const Repository = (): JSX.Element => {
               contributorsData={repoContributorsData!}
             />
           </div>
-        </div>
-                : ''}
+        </div> : '' }
     </div>
   )
 }

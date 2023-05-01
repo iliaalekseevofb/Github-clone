@@ -46,9 +46,9 @@ const User = (): JSX.Element => {
 
   return (
     <div className="mt-6">
-      { (isUserLoading || isUserReposLoading) ? <Spinner />
-        : (isUserError || isUserReposError) ? <Error errorMessage="Something went wrong while fetching user data :(" />
-            : (isUserSuccess && isUserReposSuccess) ? (
+      { (isUserLoading || isUserReposLoading) ? <Spinner /> : '' }
+      { (isUserError || isUserReposError) ? <Error errorMessage="Something went wrong while fetching user data :(" /> : '' }
+      { (isUserSuccess && isUserReposSuccess) ? (
         <div className="w-full h-full">
           {/* For cases when screen size larger than 1024px */}
           <div className="hidden lg:block">
@@ -77,8 +77,8 @@ const User = (): JSX.Element => {
               <Outlet context={ userReposData } />
             </div>
           </div>
-        </div>) : ''
-      }
+        </div>
+      ) : '' }
     </div>
   )
 }
