@@ -1,11 +1,9 @@
 # GitHub-clone
 
-GitHub-clone is a web application built with React, TypeScript, RTK Query, and TailwindCSS.
-
-This application does not have any GitHub functionality, but only demonstrates the basic UI using public GitHub API.
+GitHub-clone is a web application built with React, TypeScript, RTK Query, and TailwindCSS. This application demonstrates the basic GitHub UI of user and repository pages using public GitHub API.
 
 ## Features
 
-This application replicates user and repository GitHub pages and makes possible to look at user's profile, his stats and bio, as well as to go to repository page and see it's description, list of used programming languages with percentage and repo contributors.
+This application makes possible to search for any user on GitHub and look at his profile, stats, bio, and list of repositories. Moreover, it's possible to go to repository page and see it's description, list of used programming languages with percentage and repo contributors.
 
-Deployed [here](https://iliaalekseevofb.github.io/Github-clone/).
+Application is deployed [here](https://iliaalekseevofb.github.io/Github-clone/).
