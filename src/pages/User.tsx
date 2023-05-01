@@ -74,7 +74,7 @@ const User = (): JSX.Element => {
               navigationLinks={navigationLinks}
             />
             <div className="w-full mt-6 px-4 md:px-6 duration-default">
-              <Outlet context={ userReposData } />
+              <Outlet context={userReposData!} />
             </div>
           </div>
         </div>
