@@ -1,16 +1,16 @@
-import { LANGUAGES_COLORS } from "../../../utils/constants";
-import { RepoLanguages } from "../../../utils/types";
-import SectionTitle from "./SectionTitle";
+import { LANGUAGES_COLORS } from '../../../utils/constants'
+import { type RepoLanguages } from '../../../utils/types'
+import SectionTitle from './SectionTitle'
 
-const Languages = ({ languagesData }: { languagesData: RepoLanguages }) => {
-  let languagesSum: number = 0,
-    languagesPercents: RepoLanguages = {};
+const Languages = ({ languagesData }: { languagesData: RepoLanguages }): JSX.Element => {
+  let languagesSum: number = 0
+  let languagesPercents: RepoLanguages = {}
 
   if (languagesData) {
-    languagesSum = Object.values(languagesData).reduce((a: number, b: number) => a + b, 0);
+    languagesSum = Object.values(languagesData).reduce((a: number, b: number) => a + b, 0)
     Object.keys(languagesData).map((lang: string): void => {
-      const languagePercent: number = Number(((languagesData[lang] / languagesSum) * 100).toFixed(1));
-      languagesPercents = {...languagesPercents, ...{ [lang]: languagePercent }};
+      const languagePercent: number = Number(((languagesData[lang] / languagesSum) * 100).toFixed(1))
+      languagesPercents = { ...languagesPercents, ...{ [lang]: languagePercent } }
     })
   }
 
@@ -22,14 +22,14 @@ const Languages = ({ languagesData }: { languagesData: RepoLanguages }) => {
           <span
             key={lang}
             style={{ width: `${languagesPercents[lang]}%` }}
-            className={`relative inline-block h-2 ${LANGUAGES_COLORS[lang.replace(/ /g,"_").replace(/'/g, '')]}`}
+            className={`relative inline-block h-2 ${LANGUAGES_COLORS[lang.replace(/ /g, '_').replace(/'/g, '')]}`}
           />
         ))}
       </div>
       <div className="flex items-center flex-wrap gap-x-4 gap-y-2 mt-4">
         {Object.keys(languagesPercents).map((lang: string) => (
           <div key={lang} className="group flex items-center text-sm cursor-pointer">
-            <span className={`relative inline-block w-3 h-3 mr-2 rounded-full ${LANGUAGES_COLORS[lang.replace(/ /g,"_").replace(/'/g, '')]}`} />
+            <span className={`relative inline-block w-3 h-3 mr-2 rounded-full ${LANGUAGES_COLORS[lang.replace(/ /g, '_').replace(/'/g, '')]}`} />
             <span className="mr-1 text-gray-900 dark:text-gray-100 group-hover:text-blue-700">
               {lang}:
             </span>

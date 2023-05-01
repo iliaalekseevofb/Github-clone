@@ -1,8 +1,8 @@
-import {NavLink, useParams} from "react-router-dom";
-import {BookmarkSquareIcon} from "@heroicons/react/24/outline";
+import { NavLink, useParams } from 'react-router-dom'
+import { BookmarkSquareIcon } from '@heroicons/react/24/outline'
 
-const BreadCrumbs = () => {
-  const { user, repository } = useParams<string>();
+const BreadCrumbs = (): JSX.Element => {
+  const { user, repository } = useParams<string>()
 
   return (
     <div className="flex items-center w-full mb-2 lg:mb-4 px-4 md:px-6 lg:px-8 duration-default text-md lg:text-xl text-gray-400">

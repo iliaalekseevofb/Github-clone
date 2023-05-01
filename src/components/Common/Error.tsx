@@ -1,4 +1,4 @@
-const Error = ({ errorMessage }: { errorMessage: string }) => {
+const Error = ({ errorMessage }: { errorMessage: string }): JSX.Element => {
   return (
     <span className="error">
       {errorMessage}

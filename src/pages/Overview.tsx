@@ -1,9 +1,9 @@
-import { useOutletContext } from "react-router-dom";
-import { RepoItem } from "../utils/types";
-import RepoCard from "../components/Overview/RepoCard";
+import { useOutletContext } from 'react-router-dom'
+import { type RepoItem } from '../utils/types'
+import RepoCard from '../components/Overview/RepoCard'
 
-const Overview = () => {
-  const userReposData: RepoItem[] = useOutletContext();
+const Overview = (): JSX.Element => {
+  const userReposData: RepoItem[] = useOutletContext()
 
   return (
     <div className="w-full">

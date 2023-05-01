@@ -1,7 +1,7 @@
-import { NavLink } from "react-router-dom";
-import { InnerNavigationLinkItem } from "../../utils/types";
+import { NavLink } from 'react-router-dom'
+import { type InnerNavigationLinkItem } from '../../utils/types'
 
-const NavigationLink = ({ path, text, external, icon }: InnerNavigationLinkItem) => {
+const NavigationLink = ({ path, text, external, icon }: InnerNavigationLinkItem): JSX.Element => {
   const NavigationLinkInner = () => {
     return (
       <div className="flex items-center rounded-md px-2 py-1 hover:bg-gray-150 dark:hover:bg-gray-300 duration-default">
@@ -17,13 +17,13 @@ const NavigationLink = ({ path, text, external, icon }: InnerNavigationLinkItem)
 
   return (
     external
-    ? <a href={path} target="_blank" className="user-link">
+      ? <a href={path} target="_blank" className="user-link" rel="noreferrer">
         <NavigationLinkInner />
       </a>
-    : <NavLink
+      : <NavLink
         to={path}
-        className={({ isActive}): string =>
-          isActive ? "user-link border-orange-400" : "user-link"
+        className={({ isActive }): string =>
+          isActive ? 'user-link border-orange-400' : 'user-link'
         }
       >
         <NavigationLinkInner />

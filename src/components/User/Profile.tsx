@@ -1,7 +1,7 @@
-import { UsersIcon } from "@heroicons/react/24/outline";
-import { UserDetailsItem } from "../../utils/types";
+import { UsersIcon } from '@heroicons/react/24/outline'
+import { type UserDetailsItem } from '../../utils/types'
 
-const Profile = ({ userData }: { userData: UserDetailsItem }) => {
+const Profile = ({ userData }: { userData: UserDetailsItem }): JSX.Element => {
   return (
     <div className="shrink-0 w-full lg:w-72 lg:min-w-72 lg:-mt-16 mr-6 mb-4 lg:mb-0 duration-default">
       <div className="flex flex-row lg:flex-col w-full">

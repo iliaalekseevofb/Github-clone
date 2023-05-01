@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react'
 
 // User search
 export interface UserSearchResponse {
@@ -227,9 +227,7 @@ export interface CommitAuthor {
 }
 
 // Repository languages
-export type RepoLanguages = {
-  [key: string]: number
-}
+export type RepoLanguages = Record<string, number>
 
 // Repository contributors
 export interface RepoContributor {
@@ -255,12 +253,12 @@ export interface RepoContributor {
 }
 
 // Navigation
-export type NavigationLinkItem = {
-  path: string,
-  text: string,
+export interface NavigationLinkItem {
+  path: string
+  text: string
 }
 
 export type InnerNavigationLinkItem = NavigationLinkItem & {
-  external: boolean,
+  external: boolean
   icon: React.ReactNode
 }

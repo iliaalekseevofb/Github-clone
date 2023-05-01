@@ -1,6 +1,6 @@
-import SectionTitle from "./SectionTitle";
+import SectionTitle from './SectionTitle'
 
-const About = ({ repoItemDescription }: { repoItemDescription: string }) => {
+const About = ({ repoItemDescription }: { repoItemDescription: string }): JSX.Element => {
   return (
     <section className="flex-1">
       <SectionTitle title="About" />

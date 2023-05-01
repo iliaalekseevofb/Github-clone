@@ -1,18 +1,18 @@
-import { NavLink } from "react-router-dom";
-import { CheckIcon, ClockIcon } from "@heroicons/react/24/outline";
-import { CommitAuthor, RepoCommit } from "../../../utils/types";
-import HeaderLink from "./HeaderLink";
+import { NavLink } from 'react-router-dom'
+import { CheckIcon, ClockIcon } from '@heroicons/react/24/outline'
+import { type CommitAuthor, type RepoCommit } from '../../../utils/types'
+import HeaderLink from './HeaderLink'
 
-const Header = ({ commitsData }: { commitsData: RepoCommit[] }) => {
+const Header = ({ commitsData }: { commitsData: RepoCommit[] }): JSX.Element => {
   // Save last commit to a variable, so it was easier to use
-  const lastCommit: RepoCommit = commitsData[0];
+  const lastCommit: RepoCommit = commitsData[0]
   // If last commit was made by organization, we need to use committer
-  const commitAuthor: CommitAuthor = lastCommit.author ? lastCommit.author : lastCommit.committer;
+  const commitAuthor: CommitAuthor = lastCommit.author ? lastCommit.author : lastCommit.committer
 
   // Change date to correct form
-  const formatter: Intl.DateTimeFormat = new Intl.DateTimeFormat('en', { month: 'short' });
-  const lastCommitDate: Date = new Date(lastCommit.commit.committer.date);
-  const lastCommitMonth: string = formatter.format(lastCommitDate);
+  const formatter: Intl.DateTimeFormat = new Intl.DateTimeFormat('en', { month: 'short' })
+  const lastCommitDate: Date = new Date(lastCommit.commit.committer.date)
+  const lastCommitMonth: string = formatter.format(lastCommitDate)
 
   return (
     <div className="flex justify-between items-center gap-x-4 w-full h-12 px-4 bg-gray-50 dark:bg-blue-900 border-b border-gray-250 dark:border-gray-300">

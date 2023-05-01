@@ -1,13 +1,13 @@
-import InnerNavigationLink from './InnerNavbar/InnerNavigationLink';
-import { InnerNavigationLinkItem } from "../utils/types";
-import { Location } from "../utils/enums";
+import InnerNavigationLink from './InnerNavbar/InnerNavigationLink'
+import { type InnerNavigationLinkItem } from '../utils/types'
+import { Location } from '../utils/enums'
 
-type InnerNavbarProps = {
-  location: Location,
+interface InnerNavbarProps {
+  location: Location
   navigationLinks: InnerNavigationLinkItem[]
 }
 
-const InnerNavbar = ({ location, navigationLinks }: InnerNavbarProps) => {
+const InnerNavbar = ({ location, navigationLinks }: InnerNavbarProps): JSX.Element => {
   return (
     <nav className="w-full flex justify-center h-12 px-4 md:px-6 lg:px-8 border-b border-gray-250 dark:border-gray-600 duration-default">
       <div className={`${location === Location.USER_PAGE ? 'max-w-7xl' : ''} w-full flex justify-start overflow-hidden`}>
@@ -30,4 +30,4 @@ const InnerNavbar = ({ location, navigationLinks }: InnerNavbarProps) => {
   )
 }
 
-export default InnerNavbar;
+export default InnerNavbar

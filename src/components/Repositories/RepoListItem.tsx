@@ -1,13 +1,13 @@
-import { RepoItem } from "../../utils/types";
-import { LANGUAGES_COLORS } from "../../utils/constants";
-import { ShareIcon, StarIcon } from "@heroicons/react/24/outline";
-import { NavLink } from "react-router-dom";
+import { type RepoItem } from '../../utils/types'
+import { LANGUAGES_COLORS } from '../../utils/constants'
+import { ShareIcon, StarIcon } from '@heroicons/react/24/outline'
+import { NavLink } from 'react-router-dom'
 
-type RepoListItemProps = {
+interface RepoListItemProps {
   repoItem: RepoItem
 }
 
-const RepoListItem = ({ repoItem }: RepoListItemProps) => {
+const RepoListItem = ({ repoItem }: RepoListItemProps): JSX.Element => {
   return (
     <li className="flex w-full justify-between items-start first:pt-0 py-6 border-b last:border-none border-gray-250 dark:border-gray-600">
       <div className="w-2/3">
@@ -23,7 +23,7 @@ const RepoListItem = ({ repoItem }: RepoListItemProps) => {
         <div className="flex items-end mt-2">
           {repoItem.language &&
             <p className="flex items-center mr-2">
-              <span className={`relative inline-block w-3 h-3 mr-1 rounded-full ${LANGUAGES_COLORS[repoItem.language?.replace(/ /g,"_").replace(/'/g, '')]}`} />
+              <span className={`relative inline-block w-3 h-3 mr-1 rounded-full ${LANGUAGES_COLORS[repoItem.language?.replace(/ /g, '_').replace(/'/g, '')]}`} />
               <span className="text-xs leading-4 text-gray-300 dark:text-gray-400">{repoItem.language}</span>
             </p>
           }

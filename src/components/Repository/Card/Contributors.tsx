@@ -1,13 +1,13 @@
-import { NavLink } from "react-router-dom";
-import { RepoContributor, RepoItem } from "../../../utils/types";
-import SectionTitle from "./SectionTitle";
+import { NavLink } from 'react-router-dom'
+import { type RepoContributor, type RepoItem } from '../../../utils/types'
+import SectionTitle from './SectionTitle'
 
-type ContributorsProps = {
-  contributorsData: RepoContributor[],
+interface ContributorsProps {
+  contributorsData: RepoContributor[]
   repoItem: RepoItem
 }
 
-const Contributors = ({ contributorsData, repoItem }: ContributorsProps ) => {
+const Contributors = ({ contributorsData, repoItem }: ContributorsProps): JSX.Element => {
   return (
     <section className="flex-1">
       <SectionTitle title="Contributors" />
@@ -26,7 +26,7 @@ const Contributors = ({ contributorsData, repoItem }: ContributorsProps ) => {
         <a
           href={`${repoItem.html_url}/contributors`}
           className="text-sm text-blue-700 underline"
-          target="_blank"
+          target="_blank" rel="noreferrer"
         >
           See all contributors
         </a>

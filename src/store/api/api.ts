@@ -1,16 +1,16 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { GITHUB_API_BASE_URL } from "../../utils/constants";
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { GITHUB_API_BASE_URL } from '../../utils/constants'
 import {
-  UserSearchResponse,
-  UserSearchItem,
-  RepoItem,
-  UserDetailsItem,
-  RepoCommit,
-  RepoLanguages, RepoContributor
-} from '../../utils/types';
+  type UserSearchResponse,
+  type UserSearchItem,
+  type RepoItem,
+  type UserDetailsItem,
+  type RepoCommit,
+  type RepoLanguages, type RepoContributor
+} from '../../utils/types'
 
 export const api = createApi({
-  reducerPath: "api",
+  reducerPath: 'api',
   baseQuery: fetchBaseQuery({
     baseUrl: GITHUB_API_BASE_URL
   }),
@@ -18,7 +18,7 @@ export const api = createApi({
     // Find users via name
     searchUsers: build.query<UserSearchItem[], string>({
       query: (userName: string) => ({
-        url: "/search/users",
+        url: '/search/users',
         params: {
           q: userName,
           per_page: 10
@@ -38,7 +38,7 @@ export const api = createApi({
     getReposByUser: build.query<RepoItem[], string>({
       query: (userName: string) => ({
         url: `/users/${userName}/repos`,
-        sort: "updated",
+        sort: 'updated',
         per_page: 10
       })
     }),
@@ -64,7 +64,7 @@ export const api = createApi({
         url: `/repos/${userName}/${repoName}/contributors`,
         per_page: 10
       })
-    }),
+    })
   })
 })
 
@@ -74,5 +74,5 @@ export const {
   useLazyGetReposByUserQuery,
   useLazyGetRepoCommitsQuery,
   useLazyGetRepoLanguagesQuery,
-  useLazyGetRepoContributorsQuery,
-} = api;
+  useLazyGetRepoContributorsQuery
+} = api

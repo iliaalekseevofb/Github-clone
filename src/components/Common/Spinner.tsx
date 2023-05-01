@@ -1,4 +1,4 @@
-const Spinner = () => {
+const Spinner = (): JSX.Element => {
   return (
     <span className="spinner" />
   )
