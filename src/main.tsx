@@ -9,7 +9,7 @@ import './App.css'
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename="https://iliaalekseevofb.github.io/Github-clone/">
         <App />
       </BrowserRouter>
     </Provider>
